@@ -26,7 +26,9 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('homestead'),
+	'local' => array('flyingfisch-Satellite-L855'),
+
+	/* Since defaults to production, nothing need be added here */
 
 ));
 
