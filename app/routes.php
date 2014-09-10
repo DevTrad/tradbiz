@@ -14,5 +14,5 @@
 Route::get('/', function()
 {
 	//return User::all();
-	return $test;
+	//return $tesit;
 });
