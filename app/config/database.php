@@ -54,10 +54,11 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/',
+			'host'      => $_ENV['OPENSHIFT_DB_HOST'],
+			'port'      => $_ENV['OPENSHIFT_DB_PORT'],
 			'database'  => 'site',
-			'username'  => 'adminSxuGsVM',
-			'password'  => 'brXLPPDfIzrF',
+			'username'  => $_ENV['OPENSHIFT_DB_USERNAME'],
+			'password'  => $_ENV['OPENSHIFT_DB_PASSWORD'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
