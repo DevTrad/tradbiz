@@ -13,5 +13,6 @@
 
 Route::get('/', function()
 {
-	return User::all();
+	//return User::all();
+	return 'test';
 });
