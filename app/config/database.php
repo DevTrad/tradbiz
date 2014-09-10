@@ -54,11 +54,11 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => '5410780b4382ecb025000314-tradconnect.rhcloud.com',
-			'port'      => '47491',
-			'database'  => 'site',
-			'username'  => 'adminSxuGsVM',
-			'password'  => 'brXLPPDfIzrF',
+			'host'      => getenv('OPENSHIFT_MYSQL_DB_HOST'),
+			'port'      => getenv('OPENSHIFT_MYSQL_DB_PORT'),
+			'database'  => getenv('OPENSHIFT_APP_NAME'),
+			'username'  => getenv('OPENSHIFT_MYSQL_DB_USERNAME'),
+			'password'  => getenv('OPENSHIFT_MYSQL_DB_PASSWORD'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
