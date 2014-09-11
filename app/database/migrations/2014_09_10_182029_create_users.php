@@ -21,6 +21,7 @@ class CreateUsers extends Migration {
 			$table->string('first_name')->unique();
 			$table->string('last_name')->unique();
 			$table->string('account_type');
+			$table->string('monthly_payment');
 			$table->timestamps(); // updated_at, created_at
 		});
 	}
