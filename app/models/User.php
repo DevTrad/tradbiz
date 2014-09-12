@@ -43,4 +43,16 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	/**
+	 * Check if user is activated based on username
+	 *
+	 * @return 1 if user is active, 0 if user is not active, -1 if user does not exist
+	 */
+	public function activationStatus() {
+		if(null !== $user = self::where('username', '=', $this->username)->first()) {
+			return $user->active;
+		} else {
+			return -1;
+		}
+	}
 }

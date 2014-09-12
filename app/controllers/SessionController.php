@@ -2,15 +2,18 @@
 
 class SessionController extends \BaseController {
 
+	public function __construct(User $user) {
+		$this->user = $user;
+	}
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		//
-	}
+	//public function index()
+	//{
+		
+	//}
 
 
 	/**
@@ -35,11 +38,21 @@ class SessionController extends \BaseController {
 	 */
 	public function store()
 	{
-		if(Auth::attempt(Input::only(['username', 'password']))) {
+		$input = Input::all();
+		$activationStatus = $this->user->fill($input)->activationStatus();
+
+		if($activationStatus == 0) {
+			$error = 'Your account is not activated yet.';
+		} elseif($activationStatus == -1) {
+			$error = 'Wrong username or password';
+		} elseif(Auth::attempt([
+			'username' => $input['username'],
+			'password' => $input['password'],
+		])) {
 			return Redirect::route('users.show', [Auth::user()->username]);
 		}
 
-		return Redirect::back()->withInput()->with('error', 'Wrong username or password.');
+		return Redirect::back()->withInput()->with('error', $error);
 	}
 
 

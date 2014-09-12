@@ -47,11 +47,13 @@ class UserController extends \BaseController {
 
 		// fill the user with the inputs and save to DB
 		$this->user->fill($data);
-		$this->user->account_type = 'normal';
 		$this->user->password = Hash::make($this->user->password);
+		$this->user->account_type = 'normal';
+		$this->user->active = 0;
+		$this->user->activation_token = uniqid();
 		$this->user->save();
 
-		Redirect::route('home');
+		return Redirect::route('home');
 	}
 
 
@@ -102,5 +104,28 @@ class UserController extends \BaseController {
 		//
 	}
 
+	/**
+	 * Show current user's profile.
+	 *
+	 * @return Response
+	 */
+	public function profile()
+	{
+		return Redirect::route('users.show', ['username' => Auth::user()->username]);
+	}
 
+	/**
+	 * Activate user based on id and token
+	 *
+	 * @param  int  $id, string  $token
+	 * @return Response
+	 */
+	public function activate($id, $token)
+	{
+		if(User::find($id)->activation_token == $token) {
+			return 'pass';
+		} else {
+			return 'fail';
+		}
+	}
 }
