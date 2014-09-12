@@ -53,6 +53,21 @@ class UserController extends \BaseController {
 		$this->user->activation_token = uniqid();
 		$this->user->save();
 
+		// send activation email
+		Mail::send(
+			'emails.auth.activate',
+			['id' => User::where('username', '=', $this->user->username)->first()->id,
+			'token' => $this->user->activation_token],
+			function($message) {
+				
+				$message->to(
+					$this->user->email,
+					$this->user->first_name . ' ' . $this->user->last_name
+				)->subject('Activate your TradConnect account');
+			}
+		);
+
+
 		return Redirect::route('home');
 	}
 
@@ -122,8 +137,12 @@ class UserController extends \BaseController {
 	 */
 	public function activate($id, $token)
 	{
-		if(User::find($id)->activation_token == $token) {
-			return 'pass';
+		$user = User::find($id)->first();
+		if($user->activation_token == $token) {
+			$user->active = true;
+			$user->save();
+
+			return Redirect::route('home');
 		} else {
 			return 'fail';
 		}

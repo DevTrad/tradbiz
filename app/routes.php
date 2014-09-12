@@ -14,7 +14,6 @@ Route::resource('sessions', 'SessionController');
 
 Route::get('test', function() {
 	Mail::send('emails.auth.activate', ['id' => '123', 'token' => '321'], function($message) {
-		$message->from('noreply@TradConnect.org', 'TradConnect');
 		$message->to('flyingfisch@toppagedesign.com', 'Flying Fisch')->subject('Activate your TradConnect account');
 	});
 });
