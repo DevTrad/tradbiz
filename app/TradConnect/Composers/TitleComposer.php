@@ -5,7 +5,8 @@ use Route;
 class TitleComposer {
 	public function compose($view) {
 		$titles = [
-			'users.index' => 'User List'
+			'/' => 'Home',
+			'users.index' => 'User List',
 		];
 
 		$route = Route::current()->getName();
