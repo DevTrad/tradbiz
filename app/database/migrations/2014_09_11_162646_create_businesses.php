@@ -16,8 +16,11 @@ class CreateBusinesses extends Migration {
 		{
 			$table->increments('id');
 			$table->string('name');
+			$table->integer('owner_id');
+			$table->string('address');
+			$table->string('latitude');
+			$table->string('longitude');
 			$table->string('description');
-			$table->string('location');
 			$table->string('promotion');
 			$table->boolean('hiring');
 			$table->timestamps();

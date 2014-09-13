@@ -20,7 +20,7 @@ class BusinessController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('businesses.create');
 	}
 
 
@@ -31,7 +31,7 @@ class BusinessController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		return Input::all();
 	}
 
 

@@ -26,8 +26,7 @@ class UserController extends \BaseController {
 	 */
 	public function create()
 	{
-		$users = User::all();
-		return View::make('users.create')->with(['users', $users]);
+		return View::make('users.create');
 	}
 
 
