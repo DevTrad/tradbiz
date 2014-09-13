@@ -16,7 +16,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		'email',
 		'password',
 		'monthly_payment',
-		'church'
+		'church_name',
+		'church_location',
+		'church_pastor'
 	];
 
 	public $rules = [
@@ -26,7 +28,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		'email'           => 'required|email',
 		'password'        => 'required|between:6,18',
 		'monthly_payment' => 'required|numeric',
-		'church'          => 'required'
+		'church_name'     => 'required',
+		'church_location' => 'required',
+		'church_pastor'   => 'required'
 	];
 
 	/**

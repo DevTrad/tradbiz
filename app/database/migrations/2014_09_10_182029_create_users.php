@@ -22,7 +22,9 @@ class CreateUsers extends Migration {
 			$table->string('last_name')->unique();
 			$table->string('account_type');
 			$table->float('monthly_payment');
-			$table->string('church');
+			$table->string('church_name');
+			$table->string('church_location');
+			$table->string('church_pastor');
 			$table->boolean('active');
 			$table->string('activation_token');
 			$table->timestamps(); // updated_at, created_at

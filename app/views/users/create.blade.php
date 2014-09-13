@@ -40,10 +40,23 @@
 		</div>
 
 		<div>
-			{{ Form::label('church', 'Your Church') }}
-			{{ Form::text('church') }}
-			{{ $errors->first('church') }}
+			{{ Form::label('church_name', 'Your Church\'s Name') }}
+			{{ Form::text('church_name') }}
+			{{ $errors->first('church_name') }}
 		</div>
+
+		<div>
+			{{ Form::label('church_location', 'Your Church\'s Location') }}
+			{{ Form::text('church_location') }}
+			{{ $errors->first('church_location') }}
+		</div>
+
+		<div>
+			{{ Form::label('church_pastor', 'Your Church\'s Pastor') }}
+			{{ Form::text('church_pastor') }}
+			{{ $errors->first('church_pastor') }}
+		</div>
+
 
 		<div>
 			{{ Form::submit('Register') }}
