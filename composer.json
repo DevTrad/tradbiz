@@ -18,7 +18,7 @@
 			"app/tests/TestCase.php"
 		],
 		"psr-0": {
-			"TradConnect": "app/"
+			"TradBiz": "app/"
 		}
 	},
 	"scripts": {

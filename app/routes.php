@@ -14,9 +14,9 @@ Route::resource('sessions', 'SessionController');
 
 Route::get('test', function() {
 	Mail::send('emails.auth.activate', ['id' => '123', 'token' => '321'], function($message) {
-		$message->to('flyingfisch@toppagedesign.com', 'Flying Fisch')->subject('Activate your TradConnect account');
+		$message->to('flyingfisch@toppagedesign.com', 'Flying Fisch')->subject('Activate your TradBiz account');
 	});
 });
 
 // View composers
-View::composer('layouts.master', 'TradConnect\Composers\TitleComposer');
+View::composer('layouts.master', 'TradBiz\Composers\TitleComposer');

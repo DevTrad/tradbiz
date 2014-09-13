@@ -63,7 +63,7 @@ class UserController extends \BaseController {
 				$message->to(
 					$this->user->email,
 					$this->user->first_name . ' ' . $this->user->last_name
-				)->subject('Activate your TradConnect account');
+				)->subject('Activate your TradBiz account');
 			}
 		);
 

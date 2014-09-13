@@ -1,4 +1,4 @@
-<?php namespace TradConnect\Composers;
+<?php namespace TradBiz\Composers;
 
 use Route;
 
