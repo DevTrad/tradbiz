@@ -18,21 +18,13 @@
 					document.getElementById('lat').value = location.lat();
 					document.getElementById('lng').value = location.lng();
 					document.getElementById('address').value = results[0].formatted_address;
+					$('#createBizForm').submit();
 				} else {
 					alert('Geocode was not successful for the following reason: ' + status);
 				}
 			});
 		}
 
-		function submitForm() {
-			codeAddress(); $('#createBizForm').submit();
-		}
-
-		$(function() {
-			$('#address').blur(function() {
-				codeAddress();
-			});
-		});
 
 		google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
@@ -46,10 +38,6 @@
 			{{ $errors->first('name') }}
 		</div>
 
-		<div>
-			{{ Form::label('description', 'Business Description') }}
-			{{ Form::textarea('description') }}
-		</div>
 
 		<div>
 			{{ Form::label('address', 'Address') }}
@@ -59,7 +47,21 @@
 		</div>
 		
 		<div>
-			{{ Form::submit('Add business', ['id' => 'addBizSubmitButton']) }}
+			{{ Form::label('description', 'Business Description') }}
+			{{ Form::textarea('description') }}
+		</div>
+
+		<div>
+			{{ Form::label('promotion', 'Promotion for customers who find you on TradBiz') }}
+			{{ Form::textarea('promotion') }}
+		</div>
+
+		<div>
+			{{ Form::hidden('hiring', '0') }}
+		</div>
+
+		<div>
+			<button type="button" id="addBizSubmitButton" onclick="codeAddress(); return false;">Add business</button>
 		</div>
 	{{ Form::close() }}
 @stop
