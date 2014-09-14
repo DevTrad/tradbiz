@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('content')
+@section('head')
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	<script>
 		var geocoder;
@@ -24,10 +24,22 @@
 			});
 		}
 
+		function submitForm() {
+			codeAddress(); $('#createBizForm').submit();
+		}
+
+		$(function() {
+			$('#address').blur(function() {
+				codeAddress();
+			});
+		});
+
 		google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
+@stop
 
-	{{ Form::open(['route' => 'businesses.store']) }}
+@section('content')
+	{{ Form::open(['route' => 'businesses.store', 'id' => 'createBizForm']) }}
 		<div>
 			{{ Form::label('name', 'Business Name') }}
 			{{ Form::text('name') }}
@@ -44,11 +56,10 @@
 			{{ Form::text('address', null, ['id' => 'address']) }}
 			{{ Form::hidden('latitude', null, ['id' => 'lat']) }}
 			{{ Form::hidden('longitude', null, ['id' => 'lng']) }}
-			<button type="button" onclick="codeAddress(); return false;">Check Address</button>
 		</div>
 		
 		<div>
-			{{ Form::submit('Add business', ['onclick' => 'codeAddress();']) }}
+			{{ Form::submit('Add business', ['id' => 'addBizSubmitButton']) }}
 		</div>
 	{{ Form::close() }}
 @stop
