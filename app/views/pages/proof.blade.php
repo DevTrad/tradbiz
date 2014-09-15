@@ -66,6 +66,10 @@
 					<td>{{ Form::select('select', ['lt' => 'Latin', 'es' => 'Espanol', 'fr' => 'French']) }}</td>
 				</tr>
 				<tr>
+					<td>{{ Form::label('textarea', 'Write a story!') }}</td>
+					<td>{{ Form::textarea('textarea') }}</td>
+				</tr>
+				<tr>
 					<td>{{ Form::submit('Submit form') }}</td>
 				</tr>
 			</table>
