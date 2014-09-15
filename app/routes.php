@@ -18,7 +18,7 @@ Route::resource('sessions', 'SessionController');
 
 // Users
 Route::get('activate/{id}/{token}', 'UserController@activate');
-Route::get('profile', ['before' => 'auth', 'uses' => 'UserController@profile']);
+Route::get('profile', ['as' => 'profile', 'before' => 'auth', 'uses' => 'UserController@profile']);
 Route::resource('users', 'UserController');
 
 // Businesses (rudimentary authentication here, more in controller)

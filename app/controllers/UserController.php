@@ -79,7 +79,8 @@ class UserController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return User::where('username', '=', $id)->first()->email;
+		$user = User::where('username', '=', $id)->first();
+		return View::make('users.show', ['user' => $user]);
 	}
 
 
@@ -141,9 +142,9 @@ class UserController extends \BaseController {
 			$user->active = true;
 			$user->save();
 
-			return Redirect::route('home');
+			return View::make('users.activate', ['success' => true]);
 		} else {
-			return 'fail';
+			return View::make('users.activate', ['success' => false]);
 		}
 	}
 }

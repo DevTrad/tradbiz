@@ -83,7 +83,10 @@ input:focus, textarea:focus {
 
 #content {
 	border-top: 4px solid #fff;
-	padding-bottom: 100px;
+	padding-bottom: 120px;
+}
+#content div {
+	padding: 0;
 }
 
 /**
@@ -129,16 +132,27 @@ header.feature h1 {
 
 nav.main {
 	float: left;
+	padding: 0;
+	width: 100%;
+}
+nav.main span {
+	float: right;
+	line-height: 80px;
 }
 nav.main ul {
 	padding: 0;
 	margin: 0;
 	list-style: none;
+	float: left;
+	margin-left: 2em;
 }
 nav.main ul li {
 	float: left;
 	margin-right: 2em;
 	line-height: 80px;
+}
+nav.main ul.right {
+	float: right;
 }
 
 nav.footer {

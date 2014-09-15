@@ -9,9 +9,16 @@
 	</head>
 	<body>
 		<header class="main">
-			<h1>TradBiz</h1>
 			<nav class="main">
+				<h1>TradBiz</h1>
 				@include('layouts.include.nav')
+				<ul class="right">
+					@if(Auth::guest())
+					<li>Business owners, {{ link_to_route('login', 'Log In') }} or {{ link_to_route('register', 'Register') }}</li>
+					@elseif(Auth::user()->account_type == 'normal')
+					<li>{{ link_to_route('profile', Auth::user()->first_name . ' ' . Auth::user()->last_name) }}</li>
+					@endif
+				</ul>
 			</nav>
 		</header>
 

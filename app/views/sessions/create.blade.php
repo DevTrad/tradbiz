@@ -5,14 +5,16 @@
 @stop
 
 @section('content')
-	@if(null != Session::get('error'))
-		<div class="error">
-			{{ Session::get('error') }}
-		</tr>
-	@endif
+	
 
 	{{ Form::open(['route' => 'sessions.store']) }}
 		<table>
+			@if(null != Session::get('error'))
+				<tr class="error">
+					<td>{{ Session::get('error') }}</td>
+				</tr>
+			@endif
+
 			<tr>
 				<td>{{ Form::label('username', 'Username') }}</td>
 				<td>{{ Form::text('username') }}</td>
@@ -21,7 +23,6 @@
 			<tr>
 				<td>{{ Form::label('password', 'Password') }}</td>
 				<td>{{ Form::password('password') }}</td>
-
 			</tr>
 
 			<tr>
