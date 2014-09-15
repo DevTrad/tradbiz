@@ -2,6 +2,10 @@
 
 class PageController extends \BaseController {
 	public function index() {
-		return View::make('home');
+		return View::make('pages.home');
+	}
+
+	public function proof() {
+		return View::make('pages.proof');
 	}
 }

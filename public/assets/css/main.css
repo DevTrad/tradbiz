@@ -1,0 +1,151 @@
+/**
+ * CSS file by flyingfisch of Top Page Design (http://toppagedesign.com)
+ *
+ * In this neck of the woods, we use the Tango Color Scheme (http://tango.freedesktop.org/static/cvs/tango-art-tools/palettes/Tango-Palette.svg)
+ *
+ * Butter              #fce94f, #edd400, #c4a000
+ * Orange              #fcaf3e, #f57900, #ce5c00
+ * Chocolate           #e9b96e, #c17d11, #8f5902
+ * Chameleon           #8ae234, #73d216, #4e9a06
+ * Sky Blue            #729fcf, #3465a4, #204a87
+ * Plum                #ad7fa8, #75507b, #5c3566
+ * Scarlet Red         #ef2929, #cc0000, #a40000
+ *
+ * Aluminium           #eeeeec, #d3d7cf, #babdb6
+ *                     #888a85, #555753, #2e3436
+ *
+ * We also add a few colors of our own:
+ *
+ * Grays:              #121212, #ffffff
+ */
+
+/**
+ * IMPORTS
+ */
+
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,800);
+
+/**
+ * DEFAULTS
+ */
+
+html {
+	box-sizing: border-box;
+	font-family: 'Raleway', sans-serif;
+	color: #212121;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+header, footer, nav, div {
+	overflow: hidden;
+	padding: 0 2%;
+}
+
+form td {
+	padding: 1em;
+}
+
+label {
+	font-weight: bold;
+}
+
+input {
+	border: 2px solid #555753;
+	font-size: inherit;
+	padding: 0.3em;
+}
+input:focus {
+	border-color: #73d216;
+}
+
+
+/**
+ * SPECIFICS (ID's)
+ */
+
+#content {
+	background: #eeeeec;
+	border-top: 4px solid #fff;
+	padding-bottom: 100px;
+}
+
+/**
+ * SPECIFICS (CLASSES)
+ */
+
+header.main {
+	background: #4e9a06;
+	color: #eeeeec;
+	height: 80px;
+}
+header.main h1 {
+	font-weight: 800;
+	float: left;
+	padding-right: 1em;
+	border-right: 1px solid #eeeeec;
+}
+header.main a {
+	color: #ffffff;
+}
+
+header.feature {
+	background-image: url('/assets/images/backgrounds/feature-green.svg');
+	background-color: #8ae234;
+	background-size: auto 100%;
+	background-position: right;
+	background-repeat: no-repeat;
+	border-bottom: 2px solid #4e9a06;
+	border-top: 2px solid #aaf244;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+header.feature h1 {
+	color: #fff;
+	font-weight: 500;
+}
+
+nav.main {
+	float: left;
+}
+nav.main ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+nav.main ul li {
+	float: left;
+	margin-right: 2em;
+	line-height: 80px;
+}
+
+nav.footer {
+	background: #8ae234;
+	height: 70px;
+}
+nav.footer h2 {
+	float: left;
+	color: #fff;
+}
+nav.footer ul {
+	margin: 0;
+	padding: 0;
+	float: right;
+}
+nav.footer li {
+	float: left;
+	margin-right: 2em;
+	line-height: 70px;
+	list-style: none;
+}
+nav.footer a {
+	color: #fff;
+}
+
+footer.main {
+	background: #4e9a06;
+	color: #aaf244;
+	padding: .5em 0;
+	text-align: center;
+}
