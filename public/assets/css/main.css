@@ -28,7 +28,15 @@
 /**
  * DEFAULTS
  */
-
+html {
+	height: 100%;
+	position: relative;
+	background: #eeeeec;
+}
+body {
+	min-height: 100%;
+	position: relative;
+}
 html {
 	box-sizing: border-box;
 	font-family: 'Raleway', sans-serif;
@@ -74,7 +82,6 @@ input:focus, textarea:focus {
  */
 
 #content {
-	background: #eeeeec;
 	border-top: 4px solid #fff;
 	padding-bottom: 100px;
 }
@@ -158,6 +165,13 @@ nav.footer a {
 }
 
 footer.main {
+	padding: 0;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
+
+footer.copyright {
 	background: #4e9a06;
 	color: #aaf244;
 	padding: .5em 0;

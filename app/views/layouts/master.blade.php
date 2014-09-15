@@ -19,16 +19,19 @@
 			@yield('feature')
 		</header>
 
-		@yield('content')
-
-		<nav class="footer">
-			<h2>TradBiz</h2>
-			@include('layouts.include.nav')
-		</nav>
-
+		<div id="content">
+			@yield('content')
+		</div>
+		
 		<footer class="main">
-			Website created by Top Page Design | &copy; TradBiz &mdash; 2014 | Proudly hosted on Openshift
-		</footer>
+			<nav class="footer">
+				<h2>TradBiz</h2>
+				@include('layouts.include.nav')
+			</nav>
 
+			<footer class="copyright">
+				Website created by Top Page Design | &copy; TradBiz &mdash; 2014 | Proudly hosted on Openshift
+			</footer>
+		</footer>
 	</body>
 </html>

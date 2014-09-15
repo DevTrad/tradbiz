@@ -1,25 +1,32 @@
 @extends('layouts.master')
 
+@section('feature')
+	<h1>Log In</h1>
+@stop
+
 @section('content')
-	{{ Form::open(['route' => 'sessions.store']) }}
-		@if(null != Session::get('error'))
+	@if(null != Session::get('error'))
 		<div class="error">
 			{{ Session::get('error') }}
-		</div>
-		@endif
+		</tr>
+	@endif
 
-		<div>
-			{{ Form::label('username', 'Username') }}
-			{{ Form::text('username') }}
-		</div>
+	{{ Form::open(['route' => 'sessions.store']) }}
+		<table>
+			<tr>
+				<td>{{ Form::label('username', 'Username') }}</td>
+				<td>{{ Form::text('username') }}</td>
+			</tr>
 
-		<div>
-			{{ Form::label('password', 'Password') }}
-			{{ Form::password('password') }}
-		</div>
+			<tr>
+				<td>{{ Form::label('password', 'Password') }}</td>
+				<td>{{ Form::password('password') }}</td>
 
-		<div>
-			{{ Form::submit('Login') }}
-		</div>
+			</tr>
+
+			<tr>
+				<td>{{ Form::submit('Login') }}</td>
+			</tr>
+		</table>
 	{{ Form::close() }}
 @stop
