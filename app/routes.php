@@ -11,9 +11,9 @@ Route::get('/', ['as' => 'home', 'uses' => 'PageController@index']);
 Route::get('proof', 'PageController@proof');
 
 // Session-related
-Route::get('login', 'SessionController@create');
-Route::get('logout', 'SessionController@destroy');
-Route::get('register', 'UserController@create');
+Route::get('login', ['as' => 'login', 'uses' => 'SessionController@create']);
+Route::get('logout', ['as' => 'logout', 'uses' => 'SessionController@destroy']);
+Route::get('register', ['as' => 'register', 'uses' => 'UserController@create']);
 Route::resource('sessions', 'SessionController');
 
 // Users

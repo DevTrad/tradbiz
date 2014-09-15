@@ -1,65 +1,70 @@
 @extends('layouts.master')
 
+@section('feature')
+	<h1>Register</h1>
+@stop
+
 @section('content')
 	{{ Form::open(['route' => 'users.store']) }}
+		<table>
+			<tr>
+				<td>{{ Form::label('username', 'Username') }}</td>
+				<td>{{ Form::text('username', null, ['placeholder' => 'Name you will log in with']) }}</td>
+				<td>{{ $errors->first('username') }}</td>
+			</tr>
 
-		<div>
-			{{ Form::label('username', 'Username') }}
-			{{ Form::text('username', null, ['placeholder' => 'Name you will log in with']) }}
-			{{ $errors->first('username') }}
-		</div>
+			<tr>
+				<td>{{ Form::label('first_name', 'First Name') }}</td>
+				<td>{{ Form::text('first_name') }}</td>
+				<td>{{ $errors->first('first_name') }}</td>
+			</tr>
 
-		<div>
-			{{ Form::label('first_name', 'First Name') }}
-			{{ Form::text('first_name') }}
-			{{ $errors->first('first_name') }}
-		</div>
+			<tr>
+				<td>{{ Form::label('last_name', 'Last Name') }}</td>
+				<td>{{ Form::text('last_name') }}</td>
+				<td>{{ $errors->first('last_name') }}</td>
+			</tr>
 
-		<div>
-			{{ Form::label('last_name', 'Last Name') }}
-			{{ Form::text('last_name') }}
-			{{ $errors->first('last_name') }}
-		</div>
+			<tr>
+				<td>{{ Form::label('email', 'Email Address') }}</td>
+				<td>{{ Form::email('email') }}</td>
+				<td>{{ $errors->first('email') }}</td>
+			</tr>
 
-		<div>
-			{{ Form::label('email', 'Email Address') }}
-			{{ Form::email('email') }}
-			{{ $errors->first('email') }}
-		</div>
+			<tr>
+				<td>{{ Form::label('password', 'Password') }}</td>
+				<td>{{ Form::password('password') }}</td>
+				<td>{{ $errors->first('password') }}</td>
+			</tr>
 
-		<div>
-			{{ Form::label('password', 'Password') }}
-			{{ Form::password('password') }}
-			{{ $errors->first('password') }}
-		</div>
+			<tr>
+				<td>{{ Form::label('monthly_payment', 'Monthly Payment') }}</td>
+				<td>{{ Form::text('monthly_payment', null, ['placeholder' => 'How much do you think we are worth?']) }}</td>
+				<td>{{ $errors->first('monthly_payment') }}</td>
+			</tr>
 
-		<div>
-			{{ Form::label('monthly_payment', 'Monthly Payment') }}
-			{{ Form::text('monthly_payment', null, ['placeholder' => 'How much do you think we are worth?']) }}
-			{{ $errors->first('monthly_payment') }}
-		</div>
+			<tr>
+				<td>{{ Form::label('church_name', 'Your Church\'s Name') }}</td>
+				<td>{{ Form::text('church_name') }}</td>
+				<td>{{ $errors->first('church_name') }}</td>
+			</tr>
 
-		<div>
-			{{ Form::label('church_name', 'Your Church\'s Name') }}
-			{{ Form::text('church_name') }}
-			{{ $errors->first('church_name') }}
-		</div>
+			<tr>
+				<td>{{ Form::label('church_location', 'Your Church\'s Location') }}</td>
+				<td>{{ Form::text('church_location') }}</td>
+				<td>{{ $errors->first('church_location') }}</td>
+			</tr>
 
-		<div>
-			{{ Form::label('church_location', 'Your Church\'s Location') }}
-			{{ Form::text('church_location') }}
-			{{ $errors->first('church_location') }}
-		</div>
-
-		<div>
-			{{ Form::label('church_pastor', 'Your Church\'s Pastor') }}
-			{{ Form::text('church_pastor') }}
-			{{ $errors->first('church_pastor') }}
-		</div>
+			<tr>
+				<td>{{ Form::label('church_pastor', 'Your Church\'s Pastor') }}</td>
+				<td>{{ Form::text('church_pastor') }}</td>
+				<td>{{ $errors->first('church_pastor') }}</td>
+			</tr>
 
 
-		<div>
-			{{ Form::submit('Register') }}
-		</div>
+			<tr>
+				<td>{{ Form::submit('Register') }}</td>
+			</tr>
+		</table>
 	{{ Form::close() }}
 @stop

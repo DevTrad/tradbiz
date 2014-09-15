@@ -43,6 +43,14 @@ header, footer, nav, div {
 	padding: 0 2%;
 }
 
+a {
+	color: #4e9a06;
+	font-weight: bold;
+}
+a:hover {
+	color: #73d216;
+}
+
 form td {
 	padding: 1em;
 }
@@ -88,6 +96,12 @@ header.main h1 {
 }
 header.main a {
 	color: #ffffff;
+	text-decoration: none;
+	padding: .5em;
+}
+header.main a:hover {
+	background: #ffffff;
+	color: #8ae234;
 }
 
 header.feature {
