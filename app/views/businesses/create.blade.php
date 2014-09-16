@@ -57,7 +57,13 @@
 					{{ Form::hidden('latitude', null, ['id' => 'lat']) }}
 					{{ Form::hidden('longitude', null, ['id' => 'lng']) }}
 				</td>
-				<td>{{ $errors->first('address') }}</td>
+				<td>
+					@if(null != $errors->first('address'))
+					{{ $errors->first('address') }}
+					@elseif(null != $errors->first('longitude') || null != $errors->first('latitude'))
+					We couldn't find that address. Try being more specific.
+					@endif
+				</td>
 			</tr>
 			
 			<tr>

@@ -45,7 +45,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header, footer, nav {
-	overflow: hidden;
+	overflow-y: hidden;
 	padding: 0 2%;
 }
 
@@ -57,6 +57,9 @@ a:hover {
 	color: #73d216;
 }
 
+form table {
+	max-width: 100%;
+}
 form td {
 	padding: 1em;
 }
@@ -69,6 +72,7 @@ input, textarea {
 	border: 2px solid #555753;
 	font-size: inherit;
 	padding: 0.3em;
+	width: 100%;
 }
 input:focus, textarea:focus {
 	border-color: #73d216;
