@@ -46,6 +46,10 @@ html {
 	box-sizing: inherit;
 }
 
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
 header, footer, nav, div {
 	overflow: hidden;
 	padding: 0 2%;
@@ -117,6 +121,7 @@ header.main a:hover {
 header.feature {
 	background-image: url('/assets/images/backgrounds/feature-green.svg');
 	background-color: #8ae234;
+	color: #ffffff;
 	background-size: auto 100%;
 	background-position: right;
 	background-repeat: no-repeat;
@@ -124,10 +129,6 @@ header.feature {
 	border-top: 2px solid #aaf244;
 	padding-top: 50px;
 	padding-bottom: 50px;
-}
-header.feature h1 {
-	color: #fff;
-	font-weight: 500;
 }
 
 nav.main {

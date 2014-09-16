@@ -30,38 +30,47 @@
 	</script>
 @stop
 
+@section('feature')
+	<h1>Add Business</h1>
+@stop
+
 @section('content')
 	{{ Form::open(['route' => 'businesses.store', 'id' => 'createBizForm']) }}
-		<div>
-			{{ Form::label('name', 'Business Name') }}
-			{{ Form::text('name') }}
-			{{ $errors->first('name') }}
-		</div>
+		<table>
+			<tr>
+				<td>{{ Form::label('name', 'Business Name') }}</td>
+				<td>{{ Form::text('name') }}</td>
+				<td>{{ $errors->first('name') }}</td>
+			</tr>
 
 
-		<div>
-			{{ Form::label('address', 'Address') }}
-			{{ Form::text('address', null, ['id' => 'address']) }}
-			{{ Form::hidden('latitude', null, ['id' => 'lat']) }}
-			{{ Form::hidden('longitude', null, ['id' => 'lng']) }}
-		</div>
-		
-		<div>
-			{{ Form::label('description', 'Business Description') }}
-			{{ Form::textarea('description') }}
-		</div>
+			<tr>
+				<td>{{ Form::label('address', 'Address') }}</td>
+				<td>{{ Form::text('address', null, ['id' => 'address']) }}</td>
+				<td>{{ Form::hidden('latitude', null, ['id' => 'lat']) }}</td>
+				<td>{{ Form::hidden('longitude', null, ['id' => 'lng']) }}</td>
+				<td>{{ $errors->first('address') }}</td>
+			</tr>
+			
+			<tr>
+				<td>{{ Form::label('description', 'Business Description') }}</td>
+				<td>{{ Form::textarea('description') }}</td>
+				<td>{{ $errors->first('description') }}</td>
+			</tr>
 
-		<div>
-			{{ Form::label('promotion', 'Promotion for customers who find you on TradBiz') }}
-			{{ Form::textarea('promotion') }}
-		</div>
+			<tr>
+				<td>{{ Form::label('promotion', 'Promotion for customers who find you on TradBiz') }}</td>
+				<td>{{ Form::textarea('promotion') }}</td>
+				<td>{{ $errors->first('promotion') }}</td>
+			</tr>
 
-		<div>
-			{{ Form::hidden('hiring', '0') }}
-		</div>
+			<tr>
+				<td>{{ Form::hidden('hiring', '0') }}</td>
+			</tr>
 
-		<div>
-			<button type="button" id="addBizSubmitButton" onclick="codeAddress(); return false;">Add business</button>
-		</div>
+			<tr>
+				<td><button type="button" id="addBizSubmitButton" onclick="codeAddress(); return false;">Add business</button></td>
+			</tr>
+		</table>
 	{{ Form::close() }}
 @stop

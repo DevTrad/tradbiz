@@ -17,6 +17,7 @@
 					<li>Business owners, {{ link_to_route('login', 'Log In') }} or {{ link_to_route('register', 'Register') }}</li>
 					@elseif(Auth::user()->account_type == 'normal')
 					<li>{{ link_to_route('profile', Auth::user()->first_name . ' ' . Auth::user()->last_name) }}</li>
+					<li>{{ link_to_route('logout', 'Log Out') }}</li>
 					@endif
 				</ul>
 			</nav>

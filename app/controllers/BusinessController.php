@@ -2,6 +2,10 @@
 
 class BusinessController extends \BaseController {
 
+	public function __construct(Business $business) {
+		$this->business = $business;
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -31,7 +35,17 @@ class BusinessController extends \BaseController {
 	 */
 	public function store()
 	{
-		return Input::all();
+		$validator = Validator::make($data = Input::all(), $this->business->rules);
+
+		if($validator->fails()) {
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+
+		$this->business->fill($data);
+		$this->business->owner_id = Auth::user()->id;
+		$this->business->slug = strtolower(str_replace(' ', '-', $this->business->name));
+
+		$this->business->save();
 	}
 
 
@@ -43,7 +57,9 @@ class BusinessController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$business = Business::where('slug', '=', $id)->first();
+		$owner = User::find($business->owner_id)->first()->username;
+		return View::make('businesses.show', ['business' => $business, 'owner' => $owner]);
 	}
 
 
