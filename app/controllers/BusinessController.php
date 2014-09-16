@@ -35,7 +35,9 @@ class BusinessController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), $this->business->rules);
+		$data = Input::all();
+		$data['slug'] = strtolower(str_replace(' ', '-', $data['name']));
+		$validator = Validator::make($data, $this->business->rules);
 
 		if($validator->fails()) {
 			return Redirect::back()->withInput()->withErrors($validator);
@@ -43,7 +45,6 @@ class BusinessController extends \BaseController {
 
 		$this->business->fill($data);
 		$this->business->owner_id = Auth::user()->id;
-		$this->business->slug = strtolower(str_replace(' ', '-', $this->business->name));
 
 		$this->business->save();
 	}

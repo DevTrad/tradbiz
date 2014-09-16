@@ -20,7 +20,7 @@
 					document.getElementById('address').value = results[0].formatted_address;
 					$('#createBizForm').submit();
 				} else {
-					alert('Geocode was not successful for the following reason: ' + status);
+					$('#createBizForm').submit();
 				}
 			});
 		}
@@ -40,15 +40,23 @@
 			<tr>
 				<td>{{ Form::label('name', 'Business Name') }}</td>
 				<td>{{ Form::text('name') }}</td>
-				<td>{{ $errors->first('name') }}</td>
+				<td>
+					@if(null != $errors->first('name'))
+					{{ $errors->first('name') }}
+					@elseif(null != $errors->first('slug'))
+					The name is already taken.
+					@endif
+				</td>
 			</tr>
 
 
 			<tr>
 				<td>{{ Form::label('address', 'Address') }}</td>
-				<td>{{ Form::text('address', null, ['id' => 'address']) }}</td>
-				<td>{{ Form::hidden('latitude', null, ['id' => 'lat']) }}</td>
-				<td>{{ Form::hidden('longitude', null, ['id' => 'lng']) }}</td>
+				<td>
+					{{ Form::text('address', null, ['id' => 'address']) }}
+					{{ Form::hidden('latitude', null, ['id' => 'lat']) }}
+					{{ Form::hidden('longitude', null, ['id' => 'lng']) }}
+				</td>
 				<td>{{ $errors->first('address') }}</td>
 			</tr>
 			
