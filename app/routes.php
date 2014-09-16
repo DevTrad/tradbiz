@@ -37,5 +37,5 @@ View::composer('layouts.master', 'TradBiz\Composers\TitleComposer');
 
 // My test route
 Route::get('test', function() {
-	return View::make('businesses.create');
+	return View::make('pages.test');
 });

@@ -20,12 +20,6 @@
  */
 
 /**
- * IMPORTS
- */
-
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,700,800);
-
-/**
  * DEFAULTS
  */
 html {
@@ -50,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 }
 
-header, footer, nav, div {
+header, footer, nav {
 	overflow: hidden;
 	padding: 0 2%;
 }
@@ -86,8 +80,9 @@ input:focus, textarea:focus {
  */
 
 #content {
-	border-top: 4px solid #fff;
+	padding: 0 2%;
 	padding-bottom: 150px;
+	overflow: auto;
 }
 #content div {
 	padding: 0;

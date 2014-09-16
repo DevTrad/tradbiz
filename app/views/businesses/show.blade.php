@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('head')
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDanRnl4TRZyI5BjvLfWNjtBatjrVwd-LM"></script>
 <script type="text/javascript">
 	function initialize() {
 		var mapOptions = {
-			center: {lat: -34.397, lng: 150.644  },
+			center: {lat: {{{ $business->latitude }}}, lng: {{{ $business->longitude }}}  },
 			zoom: 8
 		};
 
@@ -29,5 +29,5 @@
 <p>{{{ $business->promotion }}}</p>
 
 <h2>Map</h2>
-<div id="map" style="height: 500px;"></div>
+<div id="map" style="height: 300px;"></div>
 @stop
