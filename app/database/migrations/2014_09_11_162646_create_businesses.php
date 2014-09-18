@@ -21,8 +21,8 @@ class CreateBusinesses extends Migration {
 			$table->string('address');
 			$table->string('latitude');
 			$table->string('longitude');
-			$table->string('description');
-			$table->string('promotion');
+			$table->text('description');
+			$table->text('promotion');
 			$table->boolean('hiring');
 			$table->timestamps();
 		});

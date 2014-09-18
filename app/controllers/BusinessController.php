@@ -13,7 +13,12 @@ class BusinessController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$query = Input::get('search');
+		$sqlsearch = '%' . $query . '%';
+		$results = DB::table('businesses')->where('name', 'LIKE', $sqlsearch);
+		$results = DB::table('businesses')->where('description', 'LIKE', $sqlsearch)->union($results)->get();
+
+		return View::make('businesses.index', ['results' => $results, 'query' => $query]);
 	}
 
 
@@ -44,6 +49,7 @@ class BusinessController extends \BaseController {
 		}
 
 		$this->business->fill($data);
+		$this->business->slug = $data['slug'];
 		$this->business->owner_id = Auth::user()->id;
 
 		$this->business->save();

@@ -4,12 +4,20 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDanRnl4TRZyI5BjvLfWNjtBatjrVwd-LM"></script>
 <script type="text/javascript">
 	function initialize() {
+		var businessLocation = new google.maps.LatLng({{{ $business->latitude }}}, {{{ $business->longitude }}});
 		var mapOptions = {
-			center: {lat: {{{ $business->latitude }}}, lng: {{{ $business->longitude }}}  },
-			zoom: 8
+			center: businessLocation,
+			zoom: 12
 		};
 
+
 		var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+		var marker = new google.maps.Marker({
+			position: businessLocation,
+			title: 'test',
+			map: map
+		});
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
 </script>

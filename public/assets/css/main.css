@@ -51,7 +51,6 @@ header, footer, nav {
 
 a {
 	color: #4e9a06;
-	font-weight: bold;
 }
 a:hover {
 	color: #73d216;
@@ -82,6 +81,19 @@ input:focus, textarea:focus {
 /**
  * SPECIFICS (ID's)
  */
+
+#main-search {
+	font-size: 2em;
+}
+#main-search input {
+	border-color: #eeeeec;
+	width: 90%;
+	float: left;
+}
+#main-search input[type='submit'] {
+	border-right: none;
+	width: 10%;
+}
 
 #content {
 	padding: 0 2%;
