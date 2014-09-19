@@ -13,7 +13,7 @@ class Business extends Eloquent {
 
 	public $rules = [
 		'name'            => 'required',
-		'slug'            => 'required|unique:businesses',
+		'slug'            => 'required|unique:businesses,slug',
 		'address'         => 'required',
 		'latitude'        => 'required',
 		'longitude'       => 'required',

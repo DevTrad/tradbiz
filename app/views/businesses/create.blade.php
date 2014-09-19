@@ -35,11 +35,15 @@
 @stop
 
 @section('content')
+	@if($edit)
+	{{ Form::open(['route' => ['businesses.update', $business->slug], 'method' => 'put', 'id' => 'createBizForm']) }}
+	@else
 	{{ Form::open(['route' => 'businesses.store', 'id' => 'createBizForm']) }}
+	@endif
 		<table>
 			<tr>
 				<td>{{ Form::label('name', 'Business Name') }}</td>
-				<td>{{ Form::text('name') }}</td>
+				<td>{{ Form::text('name', isset($business->name) ? $business->name : '') }}</td>
 				<td>
 					@if(null != $errors->first('name'))
 					{{ $errors->first('name') }}
@@ -53,7 +57,7 @@
 			<tr>
 				<td>{{ Form::label('address', 'Address') }}</td>
 				<td>
-					{{ Form::text('address', null, ['id' => 'address']) }}
+					{{ Form::text('address', isset($business->address) ? $business->address : '', ['id' => 'address']) }}
 					{{ Form::hidden('latitude', null, ['id' => 'lat']) }}
 					{{ Form::hidden('longitude', null, ['id' => 'lng']) }}
 				</td>
@@ -68,13 +72,13 @@
 			
 			<tr>
 				<td>{{ Form::label('description', 'Business Description') }}</td>
-				<td>{{ Form::textarea('description') }}</td>
+				<td>{{ Form::textarea('description', isset($business->description) ? $business->description : '') }}</td>
 				<td>{{ $errors->first('description') }}</td>
 			</tr>
 
 			<tr>
 				<td>{{ Form::label('promotion', 'Promotion for customers who find you on TradBiz') }}</td>
-				<td>{{ Form::textarea('promotion') }}</td>
+				<td>{{ Form::textarea('promotion', isset($business->promotion) ? $business->promotion : '') }}</td>
 				<td>{{ $errors->first('promotion') }}</td>
 			</tr>
 
@@ -83,7 +87,13 @@
 			</tr>
 
 			<tr>
-				<td><button type="button" id="addBizSubmitButton" onclick="codeAddress(); return false;">Add business</button></td>
+				<td>
+					@if($edit)
+					<button type="button" id="addBizSubmitButton" onclick="codeAddress(); return false;">Edit business</button>
+					@else
+					<button type="button" id="addBizSubmitButton" onclick="codeAddress(); return false;">Add business</button>
+					@endif
+				</td>
 			</tr>
 		</table>
 	{{ Form::close() }}

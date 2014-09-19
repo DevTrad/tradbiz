@@ -22,9 +22,9 @@ Route::get('profile', ['as' => 'profile', 'before' => 'auth', 'uses' => 'UserCon
 Route::resource('users', 'UserController');
 
 // Businesses (rudimentary authentication here, more in controller)
-//Route::group(['before' => 'auth'], function() {
+Route::group(['before' => 'auth'], function() {
 	Route::resource('businesses', 'BusinessController', ['only' => ['create', 'destroy', 'store', 'edit', 'update']]);
-//});
+});
 Route::resource('businesses', 'BusinessController', ['only' => ['index', 'show']]);
 
 

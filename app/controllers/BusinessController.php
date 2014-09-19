@@ -29,7 +29,7 @@ class BusinessController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('businesses.create');
+		return View::make('businesses.create', ['edit' => false]);
 	}
 
 
@@ -53,6 +53,8 @@ class BusinessController extends \BaseController {
 		$this->business->owner_id = Auth::user()->id;
 
 		$this->business->save();
+
+		return Redirect::route('business.show', $data['slug']);
 	}
 
 
@@ -78,7 +80,13 @@ class BusinessController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$business = Business::where('slug', '=', $id)->first();
+
+		if(Auth::user()->id == $business->owner_id) {
+			return View::make('businesses.create', ['business' => $business, 'edit' => true]);
+		}
+
+		return Redirect::route('businesses.show', $business->slug);
 	}
 
 
@@ -90,7 +98,29 @@ class BusinessController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$business = Business::where('slug', '=', $id)->first();
+
+		if(Auth::user()->id == $business->owner_id) {
+			$data = Input::all();
+			$data['slug'] = strtolower(str_replace(' ', '-', $data['name']));
+
+			$editrules = $this->business->rules;
+			$editrules['slug'] = 'required';
+
+			$validator = Validator::make($data, $editrules);
+
+			if($validator->fails()) {
+				return Redirect::back()->withInput()->withErrors($validator);
+			}
+
+			$business = Business::where('slug', '=', $data['slug'])->first();
+			$business->fill($data);
+			$business->slug = $data['slug'];
+
+			$business->save();
+		}
+
+		return Redirect::route('businesses.show', $business->slug);
 	}
 
 

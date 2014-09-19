@@ -137,7 +137,7 @@ class UserController extends \BaseController {
 	 */
 	public function activate($id, $token)
 	{
-		$user = User::find($id)->first();
+		$user = User::find($id);
 		if($user->activation_token == $token) {
 			$user->active = true;
 			$user->save();
