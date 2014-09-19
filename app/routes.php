@@ -17,6 +17,7 @@ Route::get('register', ['as' => 'register', 'uses' => 'UserController@create']);
 Route::resource('sessions', 'SessionController');
 
 // Users
+Route::controller('password', 'RemindersController');
 Route::get('activate/{id}/{token}', 'UserController@activate');
 Route::get('profile', ['as' => 'profile', 'before' => 'auth', 'uses' => 'UserController@profile']);
 Route::resource('users', 'UserController');
