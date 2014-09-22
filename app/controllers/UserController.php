@@ -80,7 +80,8 @@ class UserController extends \BaseController {
 	public function show($id)
 	{
 		$user = User::where('username', '=', $id)->first();
-		return View::make('users.show', ['user' => $user]);
+		$businesses = Business::where('owner_id', '=', $user->id)->get();
+		return View::make('users.show', ['user' => $user, 'businesses' => $businesses]);
 	}
 
 
