@@ -8,6 +8,7 @@
 
 // Static pages
 Route::get('/', ['as' => 'home', 'uses' => 'PageController@index']);
+Route::get('about', ['as' => 'about', 'uses' => 'PageController@about']);
 Route::get('proof', 'PageController@proof');
 
 // Session-related

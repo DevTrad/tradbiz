@@ -5,6 +5,10 @@ class PageController extends \BaseController {
 		return View::make('pages.home');
 	}
 
+	public function about() {
+		return View::make('pages.about');
+	}
+
 	public function proof() {
 		return View::make('pages.proof');
 	}
