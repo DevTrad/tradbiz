@@ -11,4 +11,5 @@
 @stop
 
 @section('content')
+	<h1>{{ link_to_route('businesses.create', 'Advertise your business on TradBiz') }}</h1>
 @stop

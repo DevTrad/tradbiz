@@ -29,5 +29,7 @@
 				<td>{{ Form::submit('Login') }}</td>
 			</tr>
 		</table>
+		{{ link_to('/password/remind', 'Forgot your password?') }}<br>
+		{{ link_to('/register', 'Don\'t have an account yet?') }}
 	{{ Form::close() }}
 @stop
