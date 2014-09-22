@@ -24,18 +24,21 @@
 @stop
 
 @section('feature')
-<h1>{{{ $business->name }}}</h1>
-<h2>{{{ $business->address }}}</h2>
+	<h1>{{{ $business->name }}}</h1>
+	<h2>{{{ $business->address }}}</h2>
 @stop
 
 @section('content')
-<p>Owned by {{ link_to('/users/' . e($owner), e($owner)) }}
-<h2>Business Description</h2>
-<p>{{{ $business->description }}}</p>
+	@if($business->owner_id == ((null != Auth::user()) ? Auth::user()->id : -1))
+		<h3>{{ link_to_route('businesses.edit', 'Edit Business', $business->slug) }}</h3>
+	@endif
+	<p>Owned by {{ link_to('/users/' . e($owner), e($owner)) }}
+	<h2>Business Description</h2>
+	<p>{{{ $business->description }}}</p>
 
-<h2>Promotion for TradBiz Customers (mention that you found us on TradBiz)</h2>
-<p>{{{ $business->promotion }}}</p>
+	<h2>Promotion for TradBiz Customers (mention that you found us on TradBiz)</h2>
+	<p>{{{ $business->promotion }}}</p>
 
-<h2>Map</h2>
-<div id="map" style="height: 300px;"></div>
+	<h2>Map</h2>
+	<div id="map" style="height: 300px;"></div>
 @stop

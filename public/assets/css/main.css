@@ -119,6 +119,9 @@ header.main h1 {
 	padding-right: 1em;
 	border-right: 1px solid #eeeeec;
 }
+header.main h1 span {
+	font-weight: 300;
+}
 header.main a {
 	color: #ffffff;
 	text-decoration: none;

@@ -5,6 +5,7 @@
 * Profile editing pages
 * Admin dashboard
 * Documentation
+* Privacy Policy
 * Change mailgun account to production instead of dev.
 * Launch
 
