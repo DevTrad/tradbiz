@@ -31,5 +31,6 @@
 		</table>
 		{{ link_to('/password/remind', 'Forgot your password?') }}<br>
 		{{ link_to('/register', 'Don\'t have an account yet?') }}
+		{{ link_to('/resend', 'Need us to send you another activation email?') }}
 	{{ Form::close() }}
 @stop

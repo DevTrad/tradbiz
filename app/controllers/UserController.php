@@ -157,4 +157,18 @@ class UserController extends \BaseController {
 		$this->user->sendActivationEmail();
 		return Redirect::to('/');
 	}
+
+	public function resendActivationEmailForm()
+	{
+		return View::make('activation.resendemail');
+	}
+
+	public function activationLookupEmail()
+	{
+		$email = Input::get('email');
+
+		$id = User::where('email', '=', $email)->first()->id;
+
+		return Redirect::to('resend/' . $id);
+	}
 }

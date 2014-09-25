@@ -25,6 +25,8 @@ Route::resource('sessions', 'SessionController');
 
 // Users
 Route::get('activate/{id}/{token}', 'UserController@activate');
+Route::post('resendlookup', 'UserController@activationLookupEmail');
+Route::get('resend', 'UserController@resendActivationEmailForm');
 Route::get('resend/{id}', 'UserController@resendActivationEmail');
 Route::get('profile', ['as' => 'profile', 'before' => 'auth', 'uses' => 'UserController@profile']);
 Route::get('dashboard', ['as' => 'dashboard', 'before' => 'auth', 'uses' => 'UserController@dashboard']);
