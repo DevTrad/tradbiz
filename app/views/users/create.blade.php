@@ -38,9 +38,9 @@
 			</tr>
 
 			<tr>
-				<td>{{ Form::label('monthly_payment', 'Monthly Payment') }}</td>
-				<td>{{ Form::text('monthly_payment', null, ['placeholder' => 'How much do you think we are worth?']) }}</td>
-				<td>{{ $errors->first('monthly_payment') }}</td>
+				<td>{{ Form::label('password_conf', 'Confirm Password') }}</td>
+				<td>{{ Form::password('password_conf') }}</td>
+				<td>{{ $errors->first('password_conf') }}</td>
 			</tr>
 
 			<tr>

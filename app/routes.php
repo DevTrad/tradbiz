@@ -10,6 +10,12 @@
 Route::get('/', ['as' => 'home', 'uses' => 'PageController@index']);
 Route::get('about', ['as' => 'about', 'uses' => 'PageController@about']);
 Route::get('proof', 'PageController@proof');
+// Documentation
+Route::get('help', 'HelpController@index');
+Route::get('help/customers', 'HelpController@customers');
+Route::get('help/businesses', 'HelpController@businesses');
+// Donations
+Route::get('donate', 'PageController@donate');
 
 // Session-related
 Route::get('login', ['as' => 'login', 'uses' => 'SessionController@create']);
@@ -19,7 +25,9 @@ Route::resource('sessions', 'SessionController');
 
 // Users
 Route::get('activate/{id}/{token}', 'UserController@activate');
+Route::get('resend/{id}', 'UserController@resendActivationEmail');
 Route::get('profile', ['as' => 'profile', 'before' => 'auth', 'uses' => 'UserController@profile']);
+Route::get('dashboard', ['as' => 'dashboard', 'before' => 'auth', 'uses' => 'UserController@dashboard']);
 Route::controller('password', 'RemindersController');
 Route::resource('users', 'UserController');
 
@@ -32,9 +40,6 @@ Route::resource('businesses', 'BusinessController', ['only' => ['index', 'show']
 
 /* VIEW COMPOSERS */
 View::composer('layouts.master', 'TradBiz\Composers\TitleComposer');
-
-
-
 
 
 // My test route

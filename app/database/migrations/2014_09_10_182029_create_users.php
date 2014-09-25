@@ -21,7 +21,6 @@ class CreateUsers extends Migration {
 			$table->string('first_name')->unique();
 			$table->string('last_name')->unique();
 			$table->string('account_type');
-			$table->float('monthly_payment');
 			$table->string('church_name');
 			$table->string('church_location');
 			$table->string('church_pastor');

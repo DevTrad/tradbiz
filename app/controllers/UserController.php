@@ -45,6 +45,7 @@ class UserController extends \BaseController {
 		}
 
 		// fill the user with the inputs and save to DB
+		unset($data['password_conf']);
 		$this->user->fill($data);
 		$this->user->password = Hash::make($this->user->password);
 		$this->user->account_type = 'normal';
@@ -53,21 +54,10 @@ class UserController extends \BaseController {
 		$this->user->save();
 
 		// send activation email
-		Mail::send(
-			'emails.auth.activate',
-			['id' => User::where('username', '=', $this->user->username)->first()->id,
-			'token' => $this->user->activation_token],
-			function($message) {
-				
-				$message->to(
-					$this->user->email,
-					$this->user->first_name . ' ' . $this->user->last_name
-				)->subject('Activate your TradBiz account');
-			}
-		);
+		$this->user->sendActivationEmail();
 
 		Auth::logout();
-		return Redirect::route('home');
+		return View::make('notifications.accountsuccess');
 	}
 
 
@@ -145,7 +135,26 @@ class UserController extends \BaseController {
 
 			return View::make('users.activate', ['success' => true]);
 		} else {
-			return View::make('users.activate', ['success' => false]);
+			return View::make('users.activate', ['success' => false, 'id' => $id]);
 		}
+	}
+
+	/**
+	 * Show user's dashboard
+	 *
+	 * @return Response
+	 */
+	public function dashboard()
+	{
+		return View::make('users.dashboard');
+	}
+
+	public function resendActivationEmail($id)
+	{
+		$user = User::find($id);
+		$this->user->fill($user->toArray());
+		$this->user->activation_token = $user->activation_token;
+		$this->user->sendActivationEmail();
+		return Redirect::to('/');
 	}
 }

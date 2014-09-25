@@ -15,7 +15,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		'last_name',
 		'email',
 		'password',
-		'monthly_payment',
+		'password_conf',
 		'church_name',
 		'church_location',
 		'church_pastor'
@@ -27,7 +27,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		'last_name'       => 'required',
 		'email'           => 'required|email|unique:users,email',
 		'password'        => 'required|between:6,18',
-		'monthly_payment' => 'required|numeric',
+		'password_conf'   => 'required|same:password',
 		'church_name'     => 'required',
 		'church_location' => 'required',
 		'church_pastor'   => 'required'
@@ -59,4 +59,24 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 			return -1;
 		}
 	}
+
+	/**
+	 * Send user an activation email
+	 *
+	 *
+	 */
+	public function sendActivationEmail() {
+		Mail::send(
+			'emails.auth.activate',
+			['id' => User::where('username', '=', $this->username)->first()->id,
+			'token' => $this->activation_token],
+			function($message) {
+				$message->to(
+					$this->email,
+					$this->first_name . ' ' . $this->last_name
+				)->subject('Activate your TradBiz account');
+			}
+		);
+	}
+
 }
