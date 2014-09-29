@@ -4,6 +4,7 @@
 * Profile editing pages
 * Admin dashboard
 * Client dashboard
+* Search by location
 * Documentation
 * Privacy Policy
 * Mobile optimization

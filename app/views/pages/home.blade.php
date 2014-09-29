@@ -1,11 +1,32 @@
 @extends('layouts.master')
 
+@section('head')
+	<script>
+	function initialize() {
+		var loc = {};
+		var geocoder = new google.maps.Geocoder();
+
+		if(google.loader.ClientLocation) {
+			loc.lat = google.loader.ClientLocation.latitude;
+			loc.lng = google.loader.ClientLocation.longitude;
+
+			var LatLng = new google.maps.LatLng(loc.lat, loc.lng);
+			geocoder.geocode({'latLng': LatLng}, function(results, status) {
+				if(status == google.maps.GeocoderStatus.OK) {
+					$('#loc').html(results[0]['formatted_address']);
+				}
+			});
+		}
+	</script>
+@stop
+
 @section('feature')
 	{{ Form::open(['route' => 'businesses.index', 'method' => 'get']) }}
 	<h1>Search for businesses:</h1>
 	<div id="main-search">
 		{{ Form::text('search', null, ['style' => '']) }}
 		{{ Form::submit('Search!', ['style' => '']) }}
+		<div id="loc"></div>
 	</div>
 	{{ Form::close() }}
 @stop
