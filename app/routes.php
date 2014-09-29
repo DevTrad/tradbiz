@@ -6,34 +6,39 @@
 
 /* ROUTES */
 
-// Static pages
+// STATIC PAGES
 Route::get('/', ['as' => 'home', 'uses' => 'PageController@index']);
 Route::get('about', ['as' => 'about', 'uses' => 'PageController@about']);
 Route::get('proof', 'PageController@proof');
+
 // Documentation
 Route::get('help', 'HelpController@index');
 Route::get('help/customers', 'HelpController@customers');
 Route::get('help/businesses', 'HelpController@businesses');
+
 // Donations
 Route::get('donate', 'PageController@donate');
 
-// Session-related
+// SESSION-RELATED
 Route::get('login', ['as' => 'login', 'uses' => 'SessionController@create']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'SessionController@destroy']);
 Route::get('register', ['as' => 'register', 'uses' => 'UserController@create']);
 Route::resource('sessions', 'SessionController');
 
-// Users
+// USERS
 Route::get('activate/{id}/{token}', 'UserController@activate');
+
 Route::post('resendlookup', 'UserController@activationLookupEmail');
 Route::get('resend', 'UserController@resendActivationEmailForm');
 Route::get('resend/{id}', 'UserController@resendActivationEmail');
+
 Route::get('profile', ['as' => 'profile', 'before' => 'auth', 'uses' => 'UserController@profile']);
 Route::get('dashboard', ['as' => 'dashboard', 'before' => 'auth', 'uses' => 'UserController@dashboard']);
+
 Route::controller('password', 'RemindersController');
 Route::resource('users', 'UserController');
 
-// Businesses (rudimentary authentication here, more in controller)
+// BUSINESSES (rudimentary authentication here, more in controller)
 Route::group(['before' => 'auth'], function() {
 	Route::resource('businesses', 'BusinessController', ['only' => ['create', 'destroy', 'store', 'edit', 'update']]);
 });
