@@ -12,7 +12,7 @@
 * Change mailgun account to production instead of dev.
 * Launch
 
-## Finished
+# Finished
 
 * Business editing pages
 * Password reminders
