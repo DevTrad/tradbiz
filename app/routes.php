@@ -10,20 +10,20 @@
 Route::get('/', ['as' => 'home', 'uses' => 'PageController@index']);
 Route::get('about', ['as' => 'about', 'uses' => 'PageController@about']);
 Route::get('proof', 'PageController@proof');
+Route::get('donate', 'PageController@donate');
 
 // Documentation
 Route::get('help', 'HelpController@index');
 Route::get('help/customers', 'HelpController@customers');
 Route::get('help/businesses', 'HelpController@businesses');
 
-// Donations
-Route::get('donate', 'PageController@donate');
 
 // SESSION-RELATED
 Route::get('login', ['as' => 'login', 'uses' => 'SessionController@create']);
 Route::get('logout', ['as' => 'logout', 'uses' => 'SessionController@destroy']);
 Route::get('register', ['as' => 'register', 'uses' => 'UserController@create']);
 Route::resource('sessions', 'SessionController');
+
 
 // USERS
 Route::get('activate/{id}/{token}', 'UserController@activate');
@@ -37,6 +37,7 @@ Route::get('dashboard', ['as' => 'dashboard', 'before' => 'auth', 'uses' => 'Use
 
 Route::controller('password', 'RemindersController');
 Route::resource('users', 'UserController');
+
 
 // BUSINESSES (rudimentary authentication here, more in controller)
 Route::group(['before' => 'auth'], function() {
