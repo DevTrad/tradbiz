@@ -5,8 +5,6 @@
 @stop
 
 @section('content')
-	
-
 	{{ Form::open(['route' => 'sessions.store']) }}
 		<table>
 			@if(null != Session::get('error'))
@@ -30,7 +28,7 @@
 			</tr>
 		</table>
 		{{ link_to('/password/remind', 'Forgot your password?') }}<br>
-		{{ link_to('/register', 'Don\'t have an account yet?') }}
+		{{ link_to('/register', 'Don\'t have an account yet?') }}<br>
 		{{ link_to('/resend', 'Need us to send you another activation email?') }}
 	{{ Form::close() }}
 @stop

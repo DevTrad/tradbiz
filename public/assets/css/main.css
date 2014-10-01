@@ -73,6 +73,9 @@ input, textarea {
 	padding: 0.3em;
 	width: 100%;
 }
+input[type='radio'], input[type='checkbox'] {
+	width: auto;
+}
 input:focus, textarea:focus {
 	border-color: #73d216;
 }
