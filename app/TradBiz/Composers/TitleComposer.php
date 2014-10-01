@@ -5,7 +5,8 @@ use Route;
 class TitleComposer {
 	public function compose($view) {
 		$titles = [
-			'/' => 'Home',
+			'home' => 'Home',
+			'about' => 'About',
 			'users.index' => 'User List',
 		];
 
@@ -18,6 +19,6 @@ class TitleComposer {
 			$title = $route;
 		}
 
-		$view->with('title', $title);
+		$view->with('title', $title . ' - TradBiz');
 	}
 }
