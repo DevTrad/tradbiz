@@ -36,9 +36,9 @@
 
 @section('content')
 	@if($edit)
-	{{ Form::open(['route' => ['businesses.update', $business->slug], 'method' => 'put', 'id' => 'createBizForm']) }}
+		{{ Form::open(['route' => ['businesses.update', $business->slug], 'method' => 'put', 'id' => 'createBizForm']) }}
 	@else
-	{{ Form::open(['route' => 'businesses.store', 'id' => 'createBizForm']) }}
+		{{ Form::open(['route' => 'businesses.store', 'id' => 'createBizForm']) }}
 	@endif
 		<table>
 			<tr>

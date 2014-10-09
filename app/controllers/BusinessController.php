@@ -54,7 +54,7 @@ class BusinessController extends \BaseController {
 
 		$this->business->save();
 
-		return Redirect::route('business.show', $data['slug']);
+		return Redirect::route('businesses.show', $data['slug']);
 	}
 
 

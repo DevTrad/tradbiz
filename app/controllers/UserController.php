@@ -146,7 +146,9 @@ class UserController extends \BaseController {
 	 */
 	public function dashboard()
 	{
-		return View::make('users.dashboard');
+		$businesses = Business::where('owner_id', '=', Auth::user()->id)->get();
+
+		return View::make('users.dashboard', ['businesses' => $businesses]);
 	}
 
 	public function resendActivationEmail($id)

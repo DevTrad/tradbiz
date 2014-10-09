@@ -49,7 +49,7 @@ class SessionController extends \BaseController {
 			'username' => $input['username'],
 			'password' => $input['password'],
 		])) {
-			return Redirect::intended('profile');
+			return Redirect::intended('dashboard');
 		}
 
 		return Redirect::back()->withInput()->with('error', $error);
