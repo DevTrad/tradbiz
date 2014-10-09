@@ -45,6 +45,8 @@ Route::group(['before' => 'auth'], function() {
 });
 Route::resource('businesses', 'BusinessController', ['only' => ['index', 'show']]);
 
+// REVIEWS
+Route::resource('reviews', 'ReviewController');
 
 /* VIEW COMPOSERS */
 View::composer('layouts.master', 'TradBiz\Composers\TitleComposer');
