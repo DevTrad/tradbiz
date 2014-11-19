@@ -54,5 +54,5 @@ View::composer('layouts.master', 'TradBiz\Composers\TitleComposer');
 
 // My test route
 Route::get('test', function() {
-	return View::make('pages.test');
+	return Redirect::route('businesses.show', 'a-cool-biz');
 });

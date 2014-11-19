@@ -2,6 +2,10 @@
 
 class ReviewController extends \BaseController {
 
+	public function __construct(Review $review) {
+		$this->review = $review;
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -31,7 +35,20 @@ class ReviewController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$data = Input::all();
+		
+		$validator = Validator::make($data, $this->review->rules);
+
+		if($validator->fails()) {
+			return Redirect::back()->withInput()->withErrors($validator);
+		}
+
+		$this->review->fill($data);
+		$this->review->save();
+
+		$business_slug = Business::where('id', '=', $data['business_id'])->first()->slug;
+
+		return Redirect::route('businesses.show', $business_slug);
 	}
 
 
