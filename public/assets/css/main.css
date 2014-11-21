@@ -110,6 +110,10 @@ input:focus, textarea:focus {
 /**
  * SPECIFICS (CLASSES)
  */
+div.col-2 {
+	width: 50%;
+	float: left;
+}
 
 header.main {
 	background: #4e9a06;

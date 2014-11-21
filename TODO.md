@@ -16,3 +16,4 @@
 
 * Business editing pages
 * Password reminders
+* Reviews

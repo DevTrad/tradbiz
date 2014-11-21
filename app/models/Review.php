@@ -3,6 +3,7 @@
 class Review extends \Eloquent {
 	protected $fillable = [
 		'rating',
+		'description',
 		'business_id',
 		'author',
 		'body'
@@ -11,6 +12,7 @@ class Review extends \Eloquent {
 	public $rules = [
 		'rating'      => 'required',
 		'business_id' => 'required',
+		'description' => 'required',
 		'author'      => 'required',
 		'body'        => 'required'
 	];

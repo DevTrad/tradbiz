@@ -21,6 +21,11 @@
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+<script>
+	$(document).ready(function() {
+		
+	});
+</script>
 @stop
 
 @section('feature')
@@ -33,16 +38,21 @@
 		<h3>{{ link_to_route('businesses.edit', 'Edit Business', $business->slug) }}</h3>
 	@endif
 
+	<p>Owned by {{ link_to('/users/' . e($owner), e($owner)) }}
+
 	<div id="map" style="height: 300px;"></div>
 
-	<p>Owned by {{ link_to('/users/' . e($owner), e($owner)) }}
-	<h2>Business Description</h2>
-	<p>{{{ $business->description }}}</p>
+	<div class="col-2">
+		<h2>Business Description</h2>
+		<p>{{{ $business->description }}}</p>
+	</div>
 
-	<h2>Promotion for TradBiz Customers (mention that you found us on TradBiz)</h2>
-	<p>{{{ $business->promotion }}}</p>
+	<div class="col-2">
+		<h2>Promotion for TradBiz Customers (mention that you found us on TradBiz)</h2>
+		<p>{{{ $business->promotion }}}</p>
+	</div>
 
 	<h1>Reviews</h1>
-	@include('reviews.show')
-	@include('reviews.create')
+	@include('reviews.index')
+	{{ link_to_route('reviews.create', 'Add Consumer Review', ['business_id' => $business->id]) }}
 @stop

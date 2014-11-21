@@ -16,6 +16,7 @@ class CreateReviews extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('business_id');
+			$table->text('description');
 			$table->integer('rating');
 			$table->text('author');
 			$table->text('body');

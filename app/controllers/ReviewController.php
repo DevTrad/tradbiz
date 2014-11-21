@@ -24,7 +24,9 @@ class ReviewController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$business_id = Input::get('business_id');
+		$business = Business::where('id', '=', $business_id)->first();
+		return View::make('reviews.create', ['business' => $business]);
 	}
 
 
