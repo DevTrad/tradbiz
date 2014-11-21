@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>{{ $title }}</title>
+		<title>@yield('title') - TradBiz</title>
 		<link href="/assets/css/normalize.css" rel="stylesheet">
 		<link href="http://fonts.googleapis.com/css?family=Raleway:400,700,800" rel="stylesheet">
 		<link href="/assets/css/main.css" rel="stylesheet">

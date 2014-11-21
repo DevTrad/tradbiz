@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+Add Business
+@stop
+
 @section('head')
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	<script>

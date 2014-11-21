@@ -103,16 +103,23 @@ input:focus, textarea:focus {
 	padding-bottom: 150px;
 	overflow: auto;
 }
-#content div {
-	padding: 0;
-}
 
 /**
  * SPECIFICS (CLASSES)
  */
 div.col-2 {
 	width: 50%;
+	min-width: 30em;
+	max-width: 50em;
+	padding-left: .4em;
 	float: left;
+}
+div.reviews {
+	clear: both;
+}
+div.review {
+	margin: 1em;
+	border-top: 1px solid #777;
 }
 
 header.main {

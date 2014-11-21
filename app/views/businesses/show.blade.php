@@ -53,7 +53,9 @@
 		<p>{{{ $business->promotion }}}</p>
 	</div>
 
-	<h1>Reviews</h1>
-	@include('reviews.index')
-	{{ link_to_route('reviews.create', 'Add Consumer Review', ['business_id' => $business->id]) }}
+	<div class="reviews">
+		<h1>Reviews</h1>
+		@include('reviews.index')
+		{{ link_to_route('reviews.create', 'Add Consumer Review', ['business_id' => $business->id]) }}
+	</div>
 @stop
