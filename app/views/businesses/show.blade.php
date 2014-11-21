@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('head')
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDanRnl4TRZyI5BjvLfWNjtBatjrVwd-LM"></script>
 <script type="text/javascript">
 	function initialize() {
