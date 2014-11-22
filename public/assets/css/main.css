@@ -72,6 +72,8 @@ input, textarea {
 	border: 2px solid #555753;
 	font-size: inherit;
 	padding: 0.3em;
+}
+table input {
 	width: 100%;
 }
 input[type='radio'], input[type='checkbox'] {

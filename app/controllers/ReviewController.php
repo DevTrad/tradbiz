@@ -38,7 +38,8 @@ class ReviewController extends \BaseController {
 	public function store()
 	{
 		$data = Input::all();
-		
+		$business = Business::where('id', '=', $data['business_id'])->first();
+
 		$validator = Validator::make($data, $this->review->rules);
 
 		if($validator->fails()) {
@@ -48,9 +49,13 @@ class ReviewController extends \BaseController {
 		$this->review->fill($data);
 		$this->review->save();
 
-		$business_slug = Business::where('id', '=', $data['business_id'])->first()->slug;
+		$average_rating = Review::where('business_id', '=', $business->id)->avg('rating');
 
-		return Redirect::route('businesses.show', $business_slug);
+		$business->average_rating = round($average_rating, 1);
+		$business->save();
+
+
+		return Redirect::route('businesses.show', $business->slug);
 	}
 
 
@@ -98,7 +103,16 @@ class ReviewController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$review = Review::find($id);
+		$business = Business::where('id', '=', $review->business_id)->first();
+
+		$average_rating = Review::where('business_id', '=', $business->id)->avg('rating');
+		$business->average_rating = round($average_rating, 1);
+		$business->save();
+
+		$review->delete();
+
+		return Redirect::route('businesses.show', $business->slug);
 	}
 
 

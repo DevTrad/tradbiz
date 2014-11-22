@@ -1,7 +1,5 @@
 @if(count($reviews) == 0)
 	<p>No reviews.</p>
-@else
-	<p>Average rating: </p>
 @endif
 
 @foreach($reviews as $review)
@@ -17,6 +15,9 @@
 			<i class="fa fa-star-o"></i>
 		@endfor
 		<strong>Posted on {{ $review->created_at }} by {{{ $review->author }}}</strong>
+		{{ Form::open(['route' => ['reviews.destroy', $review->id], 'method' => 'delete']) }}
+			{{ Form::submit('Delete') }}
+		{{ Form::close() }}
 	</div>
 @endforeach
 
