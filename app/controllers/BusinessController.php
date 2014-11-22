@@ -2,8 +2,9 @@
 
 class BusinessController extends \BaseController {
 
-	public function __construct(Business $business) {
+	public function __construct(Business $business, User $user) {
 		$this->business = $business;
+		$this->user = $user;
 	}
 
 	/**
@@ -83,7 +84,7 @@ class BusinessController extends \BaseController {
 	{
 		$business = Business::where('slug', '=', $id)->first();
 
-		if(Auth::user()->id == $business->owner_id) {
+		if($this->user->authedToModifyBusiness(Auth::user(), $business)) {
 			return View::make('businesses.create', ['business' => $business, 'edit' => true]);
 		}
 
@@ -101,7 +102,7 @@ class BusinessController extends \BaseController {
 	{
 		$business = Business::where('slug', '=', $id)->first();
 
-		if(Auth::user()->id == $business->owner_id) {
+		if($this->user->authedToModifyBusiness(Auth::user(), $business)) {
 			$data = Input::all();
 			$data['slug'] = strtolower(str_replace(' ', '-', $data['name']));
 
@@ -133,7 +134,11 @@ class BusinessController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$business = Business::where('slug', '=', $id)->first();
+		if($this->user->authedToModifyBusiness(Auth::user(), $business)) {
+			$business->delete();
+		}
+		return Redirect::route('home');
 	}
 
 

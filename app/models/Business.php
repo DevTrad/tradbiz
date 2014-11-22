@@ -29,5 +29,4 @@ class Business extends Eloquent {
 	 */
 	protected $table = 'businesses';
 
-
 }

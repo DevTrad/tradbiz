@@ -61,6 +61,21 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	}
 
 	/**
+	 * Check if user is able to modify business.
+	 *
+	 * @var user, business
+	 * @return Boolean
+	 */
+	public function authedToModifyBusiness($user, $business) {
+		if($user->id == $business->owner_id || $user->account_type == 99) {
+			return True;
+		}
+
+		return False;
+	}
+
+
+	/**
 	 * Send user an activation email
 	 *
 	 *
