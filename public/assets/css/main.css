@@ -215,9 +215,7 @@ nav.footer a {
 
 footer.main {
 	padding: 0;
-	position: absolute;
 	width: 100%;
-	bottom: 0;
 }
 
 footer.copyright {
