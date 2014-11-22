@@ -1,6 +1,7 @@
 # To-do list
 
 * Paypal integration
+* Images for businesses
 * Profile editing pages
 * Admin dashboard
 * Client dashboard

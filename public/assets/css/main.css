@@ -68,7 +68,7 @@ label {
 	font-weight: bold;
 }
 
-input, textarea {
+input, textarea, button {
 	border: 2px solid #555753;
 	font-size: inherit;
 	padding: 0.3em;
@@ -79,7 +79,7 @@ table input {
 input[type='radio'], input[type='checkbox'] {
 	width: auto;
 }
-input:focus, textarea:focus {
+input:focus, textarea:focus, button:focus {
 	border-color: #73d216;
 }
 

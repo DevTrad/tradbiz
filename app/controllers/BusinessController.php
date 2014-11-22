@@ -67,7 +67,7 @@ class BusinessController extends \BaseController {
 	public function show($id)
 	{
 		$business = Business::where('slug', '=', $id)->first();
-		$owner = User::find($business->owner_id)->first()->username;
+		$owner = User::find($business->owner_id);
 		$reviews = Review::where('business_id', '=', $business->id)->get();
 		return View::make('businesses.show', ['business' => $business, 'owner' => $owner, 'reviews' => $reviews]);
 	}

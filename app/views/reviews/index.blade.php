@@ -17,7 +17,7 @@
 
 		<strong>Posted on {{ $review->created_at }} by {{{ $review->author }}}</strong>
 
-		@if(Auth::user()->account_type == 99)
+		@if(!Auth::guest() && Auth::user()->account_type == 99)
 			{{ Form::open(['route' => ['reviews.destroy', $review->id], 'method' => 'delete']) }}
 				{{ Form::submit('Delete') }}
 			{{ Form::close() }}

@@ -43,7 +43,7 @@
 		<h3>{{ link_to_route('businesses.edit', 'Edit Business', $business->slug) }}</h3>
 	@endif
 
-	<p>Owned by {{ link_to('/users/' . e($owner), e($owner)) }}
+	<p>Owned by {{ link_to('/users/' . e($owner->username), e($owner->first_name . ' ' . $owner->last_name)) }}
 
 	<div id="map" style="height: 300px;"></div>
 
@@ -61,7 +61,7 @@
 	<div class="reviews padded">
 		<h1>Reviews</h1>
 		@if($business->average_rating > 0)
-			<p>Average rating: {{ $business->average_rating }} stars</p>
+			<p>Average rating: {{ $business->average_rating }}/5 stars</p>
 		@endif
 		@include('reviews.index')
 		{{ link_to_route('reviews.create', 'Add Consumer Review', ['business_id' => $business->id]) }}
