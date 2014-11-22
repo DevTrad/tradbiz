@@ -14,10 +14,14 @@
 		@for($i = 0; $i < (5 - $review->rating); $i++)
 			<i class="fa fa-star-o"></i>
 		@endfor
+
 		<strong>Posted on {{ $review->created_at }} by {{{ $review->author }}}</strong>
-		{{ Form::open(['route' => ['reviews.destroy', $review->id], 'method' => 'delete']) }}
-			{{ Form::submit('Delete') }}
-		{{ Form::close() }}
+
+		@if(Auth::user()->account_type == 99)
+			{{ Form::open(['route' => ['reviews.destroy', $review->id], 'method' => 'delete']) }}
+				{{ Form::submit('Delete') }}
+			{{ Form::close() }}
+		@endif
 	</div>
 @endforeach
 

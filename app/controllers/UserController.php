@@ -48,7 +48,7 @@ class UserController extends \BaseController {
 		unset($data['password_conf']);
 		$this->user->fill($data);
 		$this->user->password = Hash::make($this->user->password);
-		$this->user->account_type = 'normal';
+		$this->user->account_type = 1;
 		$this->user->active = 0;
 		$this->user->activation_token = uniqid();
 		$this->user->save();

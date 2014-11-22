@@ -121,6 +121,7 @@ div.col-2 {
 }
 div.reviews {
 	clear: both;
+	max-width: 50em;
 }
 div.review {
 	margin: 1em;

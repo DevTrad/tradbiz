@@ -16,7 +16,7 @@
 				<ul class="right">
 					@if(Auth::guest())
 					<li>Business owners, {{ link_to_route('login', 'Log In') }} or {{ link_to_route('register', 'Register') }}</li>
-					@elseif(Auth::user()->account_type == 'normal')
+					@elseif(Auth::user()->account_type > 0)
 					<li>{{ link_to_route('dashboard', Auth::user()->first_name . ' ' . Auth::user()->last_name) }}</li>
 					<li>{{ link_to_route('logout', 'Log Out') }}</li>
 					@endif
