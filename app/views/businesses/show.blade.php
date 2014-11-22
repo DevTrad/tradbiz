@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+{{ $business->name }}
+@stop
+
 @section('head')
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDanRnl4TRZyI5BjvLfWNjtBatjrVwd-LM"></script>
@@ -43,17 +47,18 @@
 
 	<div id="map" style="height: 300px;"></div>
 
-	<div class="col-2">
+	<div class="col-2 padded">
 		<h2>Business Description</h2>
 		<p>{{{ $business->description }}}</p>
 	</div>
 
-	<div class="col-2">
-		<h2>Promotion for TradBiz Customers (mention that you found us on TradBiz)</h2>
+	<div class="col-2 padded">
+		<h2>Promotion for TradBiz Customers</h2>
+		<h3>(mention that you found us on TradBiz)</h3>
 		<p>{{{ $business->promotion }}}</p>
 	</div>
 
-	<div class="reviews">
+	<div class="reviews padded">
 		<h1>Reviews</h1>
 		@include('reviews.index')
 		{{ link_to_route('reviews.create', 'Add Consumer Review', ['business_id' => $business->id]) }}

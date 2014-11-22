@@ -23,6 +23,7 @@ class CreateBusinesses extends Migration {
 			$table->string('longitude');
 			$table->text('description');
 			$table->text('promotion');
+			$table->text('average_rating');
 			$table->boolean('hiring');
 			$table->timestamps();
 		});

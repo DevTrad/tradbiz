@@ -1,3 +1,9 @@
+@if(count($reviews) == 0)
+	<p>No reviews.</p>
+@else
+	<p>Average rating: </p>
+@endif
+
 @foreach($reviews as $review)
 	<div class="review">
 		<h2>{{{ $review->description }}}</h2>
@@ -14,6 +20,3 @@
 	</div>
 @endforeach
 
-@if(count($reviews) == 0)
-	<p>No reviews.</p>
-@endif

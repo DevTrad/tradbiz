@@ -5,13 +5,14 @@
 @stop
 
 @section('content')
+	@if(null != Session::get('error'))
+		<p><strong>{{ Session::get('error') }}</strong></p>
+		@if(Session::get('error') == 'Your account is not activated yet.')
+			{{ link_to('/resend', 'Need us to send you another activation email?') }}
+		@endif
+	@endif
 	{{ Form::open(['route' => 'sessions.store']) }}
 		<table>
-			@if(null != Session::get('error'))
-				<tr class="error">
-					<td>{{ Session::get('error') }}</td>
-				</tr>
-			@endif
 
 			<tr>
 				<td>{{ Form::label('username', 'Username') }}</td>
@@ -29,6 +30,5 @@
 		</table>
 		{{ link_to('/password/remind', 'Forgot your password?') }}<br>
 		{{ link_to('/register', 'Don\'t have an account yet?') }}<br>
-		{{ link_to('/resend', 'Need us to send you another activation email?') }}
 	{{ Form::close() }}
 @stop

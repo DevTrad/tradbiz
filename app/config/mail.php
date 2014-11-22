@@ -56,7 +56,7 @@ return array(
 
 	'from' => array(
 		'address' => 'noreply@sandbox37321b247d624c91b3b11625c52bd884.mailgun.org',
-		'name' => 'TradConnect'
+		'name' => 'TradBiz'
 	),
 
 	/*

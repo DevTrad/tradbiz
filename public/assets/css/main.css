@@ -26,6 +26,7 @@ html {
 	height: 100%;
 	position: relative;
 	background: #eeeeec;
+	line-height: 2em;
 }
 body {
 	min-height: 100%;
@@ -107,11 +108,13 @@ input:focus, textarea:focus {
 /**
  * SPECIFICS (CLASSES)
  */
+.padded {
+	padding: 2em;
+}
 div.col-2 {
 	width: 50%;
 	min-width: 30em;
 	max-width: 50em;
-	padding-left: .4em;
 	float: left;
 }
 div.reviews {
@@ -119,7 +122,7 @@ div.reviews {
 }
 div.review {
 	margin: 1em;
-	border-top: 1px solid #777;
+	border-top: 1px solid #CCC;
 }
 
 header.main {
