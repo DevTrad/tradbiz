@@ -10,7 +10,7 @@
 	<table>
 		<tr>
 			<td>{{ Form::label('author', 'Your Name') }}</td>
-			<td>{{ Form::text('author') }}</td>
+			<td>{{ Form::text('author', Auth::user() ? Auth::user()->first_name . ' ' . Auth::user()->last_name : '') }}</td>
 			<td>{{ $errors->first('author') }}</td>
 		</tr>
 
