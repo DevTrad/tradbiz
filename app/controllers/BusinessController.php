@@ -134,7 +134,8 @@ class BusinessController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		$business = Business::where('slug', '=', $id)->first();
+		$business = Business::find($id);
+
 		if($this->user->authedToModifyBusiness(Auth::user(), $business)) {
 			$business->delete();
 		}

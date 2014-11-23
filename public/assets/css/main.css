@@ -68,10 +68,16 @@ label {
 	font-weight: bold;
 }
 
-input, textarea, button {
+input, textarea, button, .button {
 	border: 2px solid #555753;
+	background: #fff;
 	font-size: inherit;
+	color: inherit;
+	text-decoration: none;
 	padding: 0.3em;
+}
+.button:hover {
+	color: inherit;
 }
 table input {
 	width: 100%;
@@ -79,7 +85,7 @@ table input {
 input[type='radio'], input[type='checkbox'] {
 	width: auto;
 }
-input:focus, textarea:focus, button:focus {
+input:focus, textarea:focus, button:focus, .button:focus {
 	border-color: #73d216;
 }
 
@@ -88,17 +94,33 @@ input:focus, textarea:focus, button:focus {
  * SPECIFICS (ID's)
  */
 
-#main-search {
+.main-search {
 	font-size: 2em;
+	position: relative;
 }
-#main-search input {
+.main-search input {
 	border-color: #eeeeec;
-	width: 90%;
+	color: #222;
+	width: 100%;
+	height: 2em;
 	float: left;
 }
-#main-search input[type='submit'] {
+.main-search input[type='submit'] {
+	font-family: 'FontAwesome';
 	border-right: none;
-	width: 10%;
+	position: absolute;
+	width: auto;
+	height: 1.8em;
+	right: .1em;
+	top: .1em;
+	border-radius: .2em;
+	border: none;
+	opacity: .5;
+}
+.main-search input[type='submit']:hover {
+	background: #4E9A06;
+	color: #fff;
+	opacity: 1;
 }
 
 #content {

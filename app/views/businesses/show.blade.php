@@ -26,11 +26,6 @@
 	}
 	google.maps.event.addDomListener(window, 'load', initialize);
 </script>
-<script>
-	$(document).ready(function() {
-		
-	});
-</script>
 @stop
 
 @section('feature')
@@ -39,8 +34,14 @@
 @stop
 
 @section('content')
-	@if($business->owner_id == ((null != Auth::user()) ? Auth::user()->id : -1))
-		<h3>{{ link_to_route('businesses.edit', 'Edit Business', $business->slug) }}</h3>
+	@if(Auth::guest() == null)
+		@if($business->owner_id == Auth::user()->id || Auth::user()->account_type == 99)
+			<p>{{ link_to_route('businesses.edit', 'Edit Business', $business->slug, ['class' => 'button']) }}</p>
+
+			{{ Form::open(['route' => ['businesses.destroy', $business->id], 'method' => 'delete', 'id' => 'delete']) }}
+				<p>{{ Form::submit('Delete Business') }}</p>
+			{{ Form::close() }}
+		@endif
 	@endif
 
 	<p>Owned by {{ link_to('/users/' . e($owner->username), e($owner->first_name . ' ' . $owner->last_name)) }}
