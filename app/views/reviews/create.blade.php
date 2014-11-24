@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+Add review
+@stop
+
 @section('feature')
 	<h1>Add Review for {{{ $business->name }}}</h1>
 @stop
