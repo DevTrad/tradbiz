@@ -48,7 +48,14 @@ class UserController extends \BaseController {
 		unset($data['password_conf']);
 		$this->user->fill($data);
 		$this->user->password = Hash::make($this->user->password);
-		$this->user->account_type = 1;
+
+		$maxid = User::all()->max('id');
+		if($maxid == 0) {
+			$this->user->account_type = 99;
+		} else {
+			$this->user->account_type = 1;
+		}
+
 		$this->user->active = 0;
 		$this->user->activation_token = uniqid();
 		$this->user->save();
@@ -107,7 +114,12 @@ class UserController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		if(Auth::user()->account_type == 99) {
+			$user = User::find($id);
+			$user->delete();
+		}
+
+		return Redirect::route('home');
 	}
 
 	/**
