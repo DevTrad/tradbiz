@@ -135,7 +135,7 @@ input:focus, textarea:focus, button:focus, .button:focus {
 .padded {
 	padding: 2em;
 }
-div.col-2 {
+.col-2 {
 	width: 50%;
 	min-width: 30em;
 	max-width: 50em;

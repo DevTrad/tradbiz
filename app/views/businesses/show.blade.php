@@ -44,6 +44,7 @@
 		@endif
 	@endif
 
+	<p style="text-align: right"><a href={{ '"/businesses/' . $business->id . '/flag"' }}><i class="fa fa-flag"></i> Flag as inappropriate</a></p>
 	<p>Owned by {{ link_to('/users/' . e($owner->username), e($owner->first_name . ' ' . $owner->last_name)) }}
 
 	<div id="map" style="height: 300px;"></div>

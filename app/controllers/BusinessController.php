@@ -143,4 +143,23 @@ class BusinessController extends \BaseController {
 	}
 
 
+	/**
+	 * Flag as inappropriate
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function flag($id) {
+		$flagger = Auth::user()->username;
+		$business = Business::find($id);
+
+		Mail::send(
+			'emails.admin.flag',
+			['flagger' => $flagger, 'business' => $business, 'extra_comments' => ''],
+			function($message) {
+				$message->to('flyingfisch@toppagedesign.com', 'Mark Fischer')->subject('TradBiz - A business has been flagged.');
+			}
+		);
+		return View::make('businesses.flagged');
+	}
 }

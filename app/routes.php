@@ -44,6 +44,7 @@ Route::group(['before' => 'auth'], function() {
 	Route::resource('businesses', 'BusinessController', ['only' => ['create', 'destroy', 'store', 'edit', 'update']]);
 });
 Route::resource('businesses', 'BusinessController', ['only' => ['index', 'show']]);
+Route::get('businesses/{businesses}/flag', ['as' => 'businesses.flag', 'before' => 'auth', 'uses' => 'BusinessController@flag']);
 
 // REVIEWS
 Route::resource('reviews', 'ReviewController');
