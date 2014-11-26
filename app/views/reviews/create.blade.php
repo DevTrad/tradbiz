@@ -19,7 +19,7 @@ Add review
 		</tr>
 
 		<tr>
-			<td>{{ Form::label('description', 'A Brief Description') }}</td>
+			<td>{{ Form::label('description', 'Summary') }}</td>
 			<td>{{ Form::text('description') }}</td>
 			<td>{{ $errors->first('description') }}</td>
 		</tr>
@@ -31,7 +31,7 @@ Add review
 		</tr>
 
 		<tr>
-			<td>{{ Form::label('body', 'Comment') }}</td>
+			<td>{{ Form::label('body', 'Review') }}</td>
 			<td>{{ Form::textarea('body') }}</td>
 			<td>{{ $errors->first('body') }}</td>
 		</tr>
