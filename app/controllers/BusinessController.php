@@ -53,6 +53,8 @@ class BusinessController extends \BaseController {
 		$this->business->slug = $data['slug'];
 		$this->business->owner_id = Auth::user()->id;
 
+		$this->business->correctUrl();
+
 		$this->business->save();
 
 		return Redirect::route('businesses.show', $data['slug']);
@@ -109,6 +111,7 @@ class BusinessController extends \BaseController {
 			$editrules = $this->business->rules;
 			$editrules['slug'] = 'required';
 
+
 			$validator = Validator::make($data, $editrules);
 
 			if($validator->fails()) {
@@ -118,6 +121,8 @@ class BusinessController extends \BaseController {
 			$business = Business::where('slug', '=', $data['slug'])->first();
 			$business->fill($data);
 			$business->slug = $data['slug'];
+
+			$business->correctUrl();
 
 			$business->save();
 		}

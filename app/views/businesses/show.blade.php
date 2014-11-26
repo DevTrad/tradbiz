@@ -52,6 +52,9 @@
 	<div class="col-2 padded">
 		<h2>Business Description</h2>
 		<p>{{{ $business->description }}}</p>
+		@if($business->url)
+			<p><a href="{{ $business->url }}">Website</a></p>
+		@endif
 	</div>
 
 	<div class="col-2 padded">

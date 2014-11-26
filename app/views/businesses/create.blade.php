@@ -73,7 +73,17 @@ Add Business
 					@endif
 				</td>
 			</tr>
-			
+
+			<tr>
+				<td>{{ Form::label('url', 'Website (optional)') }}</td>
+				<td>
+					{{ Form::text('url', isset($business->url) ? $business->url : '') }}
+				</td>
+				<td>
+					{{ $errors->first('url') }}
+				</td>
+			</tr>
+
 			<tr>
 				<td>{{ Form::label('description', 'Business Description') }}</td>
 				<td>{{ Form::textarea('description', isset($business->description) ? $business->description : '') }}</td>

@@ -6,6 +6,7 @@ class Business extends Eloquent {
 		'address',
 		'latitude',
 		'longitude',
+		'url',
 		'description',
 		'promotion',
 		'hiring'
@@ -17,6 +18,7 @@ class Business extends Eloquent {
 		'address'         => 'required',
 		'latitude'        => 'required',
 		'longitude'       => 'required',
+		'url'             => 'active_url',
 		'description'     => 'required|max:500',
 		'promotion'       => 'required|max:500',
 		'hiring'          => 'required'
@@ -28,5 +30,11 @@ class Business extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'businesses';
+
+	public function correctUrl() {
+		if((count($this->url) > 0) && (substr($this->url, 0, 7) != 'http://')) {
+			$this->url = 'http://' . $this->url;
+		}
+	}
 
 }
