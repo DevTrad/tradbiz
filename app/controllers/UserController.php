@@ -119,7 +119,7 @@ class UserController extends \BaseController {
 			$user->delete();
 		}
 
-		return Redirect::route('users.show');
+		return Redirect::route('users.index');
 	}
 
 	/**
