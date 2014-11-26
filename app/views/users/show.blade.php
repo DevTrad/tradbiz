@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+User Profile
+@stop
+
 @section('feature')
 	<h1>{{{ $user->first_name }}} {{{ $user->last_name }}}'s Profile</h1>
 @stop

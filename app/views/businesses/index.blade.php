@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+Search Results
+@stop
+
 @section('feature')
 	<h1>Diplaying search results for: {{{ $query }}}</h1>
 @stop

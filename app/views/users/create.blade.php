@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+Register
+@stop
+
 @section('feature')
 	<h1>Register</h1>
 @stop
