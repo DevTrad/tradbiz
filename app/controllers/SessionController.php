@@ -26,7 +26,7 @@ class SessionController extends \BaseController {
 		if(Auth::guest()) {
 			return View::make('sessions.create');
 		} else {
-			return 'You are already logged in.';
+			return Redirect::route('dashboard');
 		}
 	}
 
