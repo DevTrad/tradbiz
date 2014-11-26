@@ -1,7 +1,11 @@
 @extends('layouts.master')
 
 @section('title')
-Add Business
+	@if(! $edit)
+		Add Business
+	@else
+		Edit Business
+	@endif
 @stop
 
 @section('head')
@@ -35,7 +39,11 @@ Add Business
 @stop
 
 @section('feature')
-	<h1>Add Business</h1>
+	@if(! $edit)
+		<h1>Add Business</h1>
+	@else
+		<h1>Edit Business</h1>
+	@endif
 @stop
 
 @section('content')
