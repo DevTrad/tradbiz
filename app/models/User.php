@@ -23,14 +23,14 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	public $rules = [
 		'username'        => 'required|unique:users,username',
-		'first_name'      => 'required',
-		'last_name'       => 'required',
+		'first_name'      => 'required|max:30',
+		'last_name'       => 'required|max:30',
 		'email'           => 'required|email|unique:users,email',
 		'password'        => 'required|between:6,18',
 		'password_conf'   => 'required|same:password',
-		'church_name'     => 'required',
-		'church_location' => 'required',
-		'church_pastor'   => 'required'
+		'church_name'     => 'required|max:30',
+		'church_location' => 'required|max:30',
+		'church_pastor'   => 'required|max:30'
 	];
 
 	/**

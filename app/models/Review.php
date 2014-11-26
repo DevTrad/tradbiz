@@ -11,10 +11,10 @@ class Review extends \Eloquent {
 
 	public $rules = [
 		'rating'      => 'required|integer|between:1,5',
-		'business_id' => 'required',
-		'description' => 'required',
-		'author'      => 'required',
-		'body'        => 'required'
+		'business_id' => 'required|integer|min:0',
+		'description' => 'required|max:75',
+		'author'      => 'required|max:30',
+		'body'        => 'required|max:500'
 	];
 
 	/**

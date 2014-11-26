@@ -12,13 +12,13 @@ class Business extends Eloquent {
 	];
 
 	public $rules = [
-		'name'            => 'required',
-		'slug'            => 'required|unique:businesses,slug',
+		'name'            => 'required|max:75',
+		'slug'            => 'required|unique:businesses,slug|max:75',
 		'address'         => 'required',
 		'latitude'        => 'required',
 		'longitude'       => 'required',
-		'description'     => 'required',
-		'promotion'       => 'required',
+		'description'     => 'required|max:500',
+		'promotion'       => 'required|max:500',
 		'hiring'          => 'required'
 	];
 
