@@ -32,7 +32,7 @@ class Business extends Eloquent {
 	protected $table = 'businesses';
 
 	public function correctUrl() {
-		if((count($this->url) > 0) && (substr($this->url, 0, 7) != 'http://')) {
+		if((count($this->url) > 1) && (substr($this->url, 0, 7) != 'http://')) {
 			$this->url = 'http://' . $this->url;
 		}
 	}
