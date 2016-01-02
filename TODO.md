@@ -1,5 +1,7 @@
 # To-do list
 
+## Site
+
 * Paypal integration
 * Images for businesses
 * Profile editing pages
@@ -12,6 +14,10 @@
 * Add titles to pages
 * Change mailgun account to production instead of dev.
 * Launch
+
+## Documentation
+
+* Add more info on how to run the server, set up the databases, etc.
 
 # Finished
 
