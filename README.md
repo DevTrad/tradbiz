@@ -4,11 +4,13 @@ Tradbiz is a platform to allow Traditional Catholic owned businesses to connect 
 
 ## Developer Info
 
+### NOTE: Upgrading to Laravel 5 is currently still in progress. Feel free to try to fix the parts that are still broken, but please don't add new features until the upgrade is complete.
+
 [Laravel Readme](README-LARAVEL.md)
 
 [Todo](TODO.md)
 
-The website is written in [Laravel](http://laravel.com/) (version 4), a PHP MVC framework.
+The website is written in [Laravel](http://laravel.com/) (version 5), a PHP MVC framework.
 
 Notable files and folders:
 
