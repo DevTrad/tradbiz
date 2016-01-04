@@ -3,6 +3,9 @@
 namespace tradbiz\Http\Controllers;
 
 use tradbiz\Http\Controllers\Controller;
+use tradbiz\Models\User;
+use Illuminate\Http\Request;
+use Auth;
 
 class SessionController extends BaseController {
 
@@ -28,7 +31,7 @@ class SessionController extends BaseController {
 	public function create()
 	{
 		if(Auth::guest()) {
-			return View::make('sessions.create');
+			return view('sessions.create');
 		} else {
 			return Redirect::route('dashboard');
 		}
@@ -40,23 +43,20 @@ class SessionController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		$input = Input::all();
+		$input = $request->all();
 		$activationStatus = $this->user->fill($input)->activationStatus();
 
 		if($activationStatus == 0) {
 			$error = 'Your account is not activated yet.';
 		} elseif($activationStatus == -1) {
 			$error = 'Wrong username or password';
-		} elseif(Auth::attempt([
-			'username' => $input['username'],
-			'password' => $input['password'],
-		])) {
-			return Redirect::intended('dashboard');
+		} elseif(Auth::attempt(['username' => $input['username'], 'password' => $input['password']])) {
+			return redirect()->intended('dashboard');
 		}
 
-		return Redirect::back()->withInput()->with('error', $error);
+		return redirect()->back()->withInput()->with('error', $error);
 	}
 
 

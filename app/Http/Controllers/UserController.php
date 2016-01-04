@@ -3,6 +3,7 @@
 namespace tradbiz\Http\Controllers;
 
 use tradbiz\Http\Controllers\Controller;
+use tradbiz\Models\User;
 
 class UserController extends BaseController {
 	protected $user;

@@ -3,6 +3,7 @@
 namespace tradbiz\Http\Controllers;
 
 use tradbiz\Http\Controllers\Controller;
+use tradbiz\Models\Review;
 
 class ReviewController extends BaseController {
 
