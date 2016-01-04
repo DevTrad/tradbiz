@@ -1,0 +1,248 @@
+/**
+ * CSS file by flyingfisch of Top Page Design (http://toppagedesign.com)
+ *
+ * We use the Tango Color Scheme in this neck of the woods (http://tango.freedesktop.org/static/cvs/tango-art-tools/palettes/Tango-Palette.svg)
+ *
+ * Butter              #fce94f, #edd400, #c4a000
+ * Orange              #fcaf3e, #f57900, #ce5c00
+ * Chocolate           #e9b96e, #c17d11, #8f5902
+ * Chameleon           #8ae234, #73d216, #4e9a06
+ * Sky Blue            #729fcf, #3465a4, #204a87
+ * Plum                #ad7fa8, #75507b, #5c3566
+ * Scarlet Red         #ef2929, #cc0000, #a40000
+ *
+ * Aluminium           #eeeeec, #d3d7cf, #babdb6
+ *                     #888a85, #555753, #2e3436
+ *
+ * We also add a few colors of our own:
+ *
+ * Grays:              #121212, #ffffff
+ */
+
+/**
+ * DEFAULTS
+ */
+html {
+	height: 100%;
+	position: relative;
+	background: #eeeeec;
+	line-height: 2em;
+}
+body {
+	min-height: 100%;
+	position: relative;
+}
+html {
+	box-sizing: border-box;
+	font-family: 'Raleway', sans-serif;
+	color: #212121;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
+header, footer, nav {
+	overflow-y: hidden;
+	padding: 0 2%;
+}
+
+a {
+	color: #4e9a06;
+}
+a:hover {
+	color: #73d216;
+}
+
+form table {
+	max-width: 100%;
+}
+form td {
+	padding: 1em;
+}
+
+label {
+	font-weight: bold;
+}
+
+input, textarea, button, .button {
+	border: 2px solid #555753;
+	background: #fff;
+	font-size: inherit;
+	color: inherit;
+	text-decoration: none;
+	padding: 0.3em;
+}
+.button:hover {
+	color: inherit;
+}
+table input {
+	width: 100%;
+}
+input[type='radio'], input[type='checkbox'] {
+	width: auto;
+}
+input:focus, textarea:focus, button:focus, .button:focus {
+	border-color: #73d216;
+}
+
+
+/**
+ * SPECIFICS (ID's)
+ */
+
+.main-search {
+	font-size: 2em;
+	position: relative;
+}
+.main-search input {
+	border-color: #eeeeec;
+	color: #222;
+	width: 100%;
+	height: 2em;
+	float: left;
+}
+.main-search input[type='submit'] {
+	font-family: 'FontAwesome';
+	border-right: none;
+	position: absolute;
+	width: auto;
+	height: 1.8em;
+	right: .1em;
+	top: .1em;
+	border-radius: .2em;
+	border: none;
+	opacity: .5;
+}
+.main-search input[type='submit']:hover {
+	background: #4E9A06;
+	color: #fff;
+	opacity: 1;
+}
+
+#content {
+	padding: 0 2%;
+	padding-bottom: 150px;
+	overflow: auto;
+}
+
+/**
+ * SPECIFICS (CLASSES)
+ */
+.padded {
+	padding: 2em;
+}
+.col-2 {
+	width: 50%;
+	min-width: 30em;
+	max-width: 50em;
+	float: left;
+}
+div.reviews {
+	clear: both;
+	max-width: 50em;
+}
+div.review {
+	margin: 1em;
+	border-top: 1px solid #CCC;
+}
+
+header.main {
+	background: #4e9a06;
+	color: #eeeeec;
+	height: 80px;
+}
+header.main h1 {
+	font-weight: 800;
+	float: left;
+	padding-right: 1em;
+	border-right: 1px solid #eeeeec;
+}
+header.main h1 span {
+	font-weight: 300;
+}
+header.main a {
+	color: #ffffff;
+	text-decoration: none;
+	padding: .5em;
+}
+header.main a:hover {
+	background: #ffffff;
+	color: #8ae234;
+}
+
+header.feature {
+	background-image: url('/assets/images/backgrounds/feature-green.svg');
+	background-color: #8ae234;
+	color: #ffffff;
+	background-size: auto 100%;
+	background-position: right;
+	background-repeat: no-repeat;
+	border-bottom: 2px solid #4e9a06;
+	border-top: 2px solid #aaf244;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+nav.main {
+	float: left;
+	padding: 0;
+	width: 100%;
+}
+nav.main span {
+	float: right;
+	line-height: 80px;
+}
+nav.main ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	float: left;
+	margin-left: 2em;
+}
+nav.main ul li {
+	float: left;
+	margin-right: 2em;
+	line-height: 80px;
+}
+nav.main ul.right {
+	float: right;
+}
+
+nav.footer {
+	background: #8ae234;
+	height: 70px;
+}
+nav.footer h2 {
+	float: left;
+	color: #fff;
+}
+nav.footer ul {
+	margin: 0;
+	padding: 0;
+	float: right;
+}
+nav.footer li {
+	float: left;
+	margin-right: 2em;
+	line-height: 70px;
+	list-style: none;
+}
+nav.footer a {
+	color: #fff;
+}
+
+footer.main {
+	padding: 0;
+	width: 100%;
+}
+
+footer.copyright {
+	background: #4e9a06;
+	color: #aaf244;
+	padding: .5em 0;
+	text-align: center;
+}
