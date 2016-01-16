@@ -4,15 +4,10 @@ namespace tradbiz\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-//use Illuminate\Database\Eloquent\Model;
-//use Illuminate\Auth\Authenticatable;
-//use Illuminate\Auth\Passwords\CanResetPassword;
-//use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-//use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Mail;
+
 
 class User extends Authenticatable {
-
-	//use AuthenticatableContract, CanResetPasswordContract;
 
 	protected $fillable = [
 		'username',

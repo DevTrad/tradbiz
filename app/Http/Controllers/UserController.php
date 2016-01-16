@@ -4,6 +4,12 @@ namespace tradbiz\Http\Controllers;
 
 use tradbiz\Http\Controllers\Controller;
 use tradbiz\Models\User;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+
+use Hash;
+use Mail;
+use Redirect;
 
 class UserController extends BaseController {
 	protected $user;
@@ -40,10 +46,10 @@ class UserController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
 		// validate the inputs
-		$validator = Validator::make($data = Input::all(), $this->user->rules);
+		$validator = Validator::make($data = $request->all(), $this->user->rules);
 
 		if($validator->fails()) {
 			return Redirect::back()->withInput()->withErrors($validator);
@@ -185,9 +191,9 @@ class UserController extends BaseController {
 		return view('activation.resendemail');
 	}
 
-	public function activationLookupEmail()
+	public function activationLookupEmail(Request $request)
 	{
-		$email = Input::get('email');
+		$email = $request->input('email');
 		$id = User::where('email', '=', $email)->first()->id;
 
 		return Redirect::to('resend/' . $id);

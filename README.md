@@ -15,7 +15,13 @@ The website is written in [Laravel](http://laravel.com/) (version 5), a PHP MVC 
 
 ### Getting started
 
-Make sure you have MySQL, PHP, and Apache installed. Then, clone this repository. In the root folder of the tradbiz project you will find a file named `.env.example`. Change the necessary variables (like MySQL password and username), and save it as `.env` in the same directory.
+Make sure you have MySQL, PHP (>= 5.5.9), and Apache installed. Then, clone this repository. In the root folder of the tradbiz project you will find a file named `.env.example`. Change the necessary variables (like MySQL password and username), and save it as `.env` in the same directory.
+
+After this is done, you will need to use [composer](https://getcomposer.org/download/) to install all of tradbiz's dependencies. To do this, first make sure you have composer installed ([instructions](https://getcomposer.org/download/)). Then run the following command:
+
+```
+$ php composer.phar update
+```
 
 Next, create a MySQL database for TradBiz, like so (if you changed the database name in your `.env`, replace 'tradbiz' with the proper database name):
 
