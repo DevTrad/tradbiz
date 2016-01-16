@@ -50,7 +50,7 @@ MAILGUN_SECRET=<your mailgun api key>
 You will also need to set up an app key. You can do this buy running:
 
 ```
-php artisan key:generate
+$ php artisan key:generate
 ```
 
 ### Setup the database
