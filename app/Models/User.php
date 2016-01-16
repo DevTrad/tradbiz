@@ -9,6 +9,8 @@ use Mail;
 
 class User extends Authenticatable {
 
+	use Illuminate\Auth\Passwords\CanResetPassword;
+
 	protected $fillable = [
 		'username',
 		'first_name',

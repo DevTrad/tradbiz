@@ -4,6 +4,12 @@ namespace tradbiz\Http\Controllers;
 
 use tradbiz\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Input;
+
+use Redirect;
+use Password;
+use Hash;
+
 class RemindersController extends Controller {
 
 	/**
@@ -13,7 +19,7 @@ class RemindersController extends Controller {
 	 */
 	public function getRemind()
 	{
-		return View::make('password.remind');
+		return view('password.remind');
 	}
 
 	/**
@@ -29,7 +35,7 @@ class RemindersController extends Controller {
 				return Redirect::back()->with('error', Lang::get($response));
 
 			case Password::REMINDER_SENT:
-				return View::make('notifications.email');
+				return view('notifications.email');
 		}
 	}
 
@@ -41,9 +47,11 @@ class RemindersController extends Controller {
 	 */
 	public function getReset($token = null)
 	{
-		if (is_null($token)) App::abort(404);
+		if (is_null($token)) {
+			App::abort(404);
+		}
 
-		return View::make('password.reset')->with('token', $token);
+		return view('password.reset')->with('token', $token);
 	}
 
 	/**
@@ -51,7 +59,7 @@ class RemindersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function postReset()
+	public function postReset(Request $request)
 	{
 		$credentials = Input::only(
 			'email', 'password', 'password_confirmation', 'token'

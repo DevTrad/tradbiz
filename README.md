@@ -47,6 +47,12 @@ MAILGUN_DOMAIN=<your mailgun domain>
 MAILGUN_SECRET=<your mailgun api key>
 ```
 
+You will also need to set up an app key. You can do this buy running:
+
+```
+php artisan key:generate
+```
+
 ### Setup the database
 
 Create a MySQL database for TradBiz, like so (if you changed the database name in your `.env`, replace 'tradbiz' with the proper database name):
@@ -66,10 +72,19 @@ $ php artisan migrate
 
 If all of the above was successful, fire up a dev server!
 
+On Linux, do this:
+
 ```
 $ php artisan serve
 ```
 
 Point your browser to `http://localhost:8000/` and you should see the homepage.
+
+On Windows, try this instead to avoid firewall issues:
+
+```
+php artisan serve --port="8888"
+```
+
 
 _Note: If you have any problems getting this to run, please file an issue_
