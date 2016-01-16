@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Hash;
 use Mail;
 use Redirect;
+use Auth;
 
 class UserController extends BaseController {
 	protected $user;
