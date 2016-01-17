@@ -1,6 +1,6 @@
 # Tradbiz
 
-Tradbiz is a platform to allow Traditional Catholic owned businesses to connect with Traditional Catholic customers. The businesses can offer promotions for their Traditional Catholic customers, and the customers can review the businesses for other Trads.
+Tradbiz is a platform to allow Traditional Catholic owned businesses to connect with Traditional Catholic customers. Businesses can offer promotions for their Traditional Catholic customers, and customers can review the businesses for other Trads.
 
 ## Developer Info
 
