@@ -2,7 +2,7 @@
 
 ## Site
 
-* Upgrade to Laravel 5
+
 * Paypal integration
 * Images for businesses
 * Profile editing pages
@@ -26,6 +26,7 @@
 
 # Finished Work
 
+* Upgrade to Laravel 5
 * Business editing pages
 * Password reminders
 * Reviews
