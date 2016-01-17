@@ -4,6 +4,12 @@ namespace tradbiz\Http\Controllers;
 
 use tradbiz\Http\Controllers\Controller;
 use tradbiz\Models\Review;
+use tradbiz\Models\Business;
+
+use Illuminate\Support\Facades\Input;
+
+use Redirect;
+use Validator;
 
 class ReviewController extends BaseController {
 
@@ -31,7 +37,8 @@ class ReviewController extends BaseController {
 	{
 		$business_id = Input::get('business_id');
 		$business = Business::where('id', '=', $business_id)->first();
-		return View::make('reviews.create', ['business' => $business]);
+
+		return view('reviews.create', ['business' => $business]);
 	}
 
 
@@ -119,6 +126,5 @@ class ReviewController extends BaseController {
 
 		return Redirect::route('businesses.show', $business->slug);
 	}
-
 
 }
