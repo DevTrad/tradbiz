@@ -6,7 +6,7 @@
 
 @section('content')
 	<p><strong>{{ session('error') }}</strong></p>
-
+	
 	{{ Form::open(['action' => 'RemindersController@postRemind']) }}
 	<table>
 		<tr>
