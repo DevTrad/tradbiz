@@ -5,7 +5,9 @@ namespace tradbiz\Http\Controllers;
 use tradbiz\Http\Controllers\Controller;
 use tradbiz\Models\User;
 use Illuminate\Http\Request;
+
 use Auth;
+use Redirect;
 
 class SessionController extends BaseController {
 
