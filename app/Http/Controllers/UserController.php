@@ -4,6 +4,8 @@ namespace tradbiz\Http\Controllers;
 
 use tradbiz\Http\Controllers\Controller;
 use tradbiz\Models\User;
+use tradbiz\Models\Business;
+
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
