@@ -44,14 +44,14 @@
 		@endif
 	@endif
 
-	<p style="text-align: right"><a href={{ '"/businesses/' . $business->id . '/flag"' }}><i class="fa fa-flag"></i> Flag as inappropriate</a></p>
+	<p style="text-align: right"><a href={{ ('/businesses/' . $business->id . '/flag') }}><i class="fa fa-flag"></i> Flag as inappropriate</a></p>
 	<p>Owned by {{ link_to('/users/' . e($owner->username), e($owner->first_name . ' ' . $owner->last_name)) }}
 
 	<div id="map" style="height: 300px;"></div>
 
 	<div class="col-2 padded">
 		<h2>Business Description</h2>
-		<p>{{{ $business->description }}}</p>
+		<p>{{ $business->description }}</p>
 		@if($business->url)
 			<p><a href="{{ $business->url }}">Website</a></p>
 		@endif
@@ -60,7 +60,7 @@
 	<div class="col-2 padded">
 		<h2>Promotion for TradBiz Customers</h2>
 		<h3>(mention that you found us on TradBiz)</h3>
-		<p>{{{ $business->promotion }}}</p>
+		<p>{{ $business->promotion }}</p>
 	</div>
 
 	<div class="reviews padded">

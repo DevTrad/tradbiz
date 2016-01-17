@@ -14,6 +14,7 @@ use DB;
 use Validator;
 use Redirect;
 use Auth;
+use Mail;
 
 class BusinessController extends BaseController {
 
