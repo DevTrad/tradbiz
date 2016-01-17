@@ -3,6 +3,7 @@
 	<head>
 		<title>@yield('title') - TradBiz</title>
 		<link href="/assets/css/normalize.css" rel="stylesheet">
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="http://fonts.googleapis.com/css?family=Raleway:400,700,800" rel="stylesheet">
 		<link href="/assets/css/main.css" rel="stylesheet">
 		<script type="text/javascript" src="/assets/js/jquery-2.1.0.min.js" charset="utf-8"></script>
@@ -31,7 +32,7 @@
 		<div id="content">
 			@yield('content')
 		</div>
-		
+
 		<footer class="main">
 			<nav class="footer">
 				<h2>TradBiz</h2>
