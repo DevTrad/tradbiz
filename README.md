@@ -4,8 +4,6 @@ Tradbiz is a platform to allow Traditional Catholic owned businesses to connect 
 
 ## Developer Info
 
-### NOTE: Upgrading to Laravel 5 is currently still in progress. Feel free to try to fix the parts that are still broken, but please don't add new features until the upgrade is complete.
-
 [Laravel Readme](README-LARAVEL.md)
 
 [Todo](TODO.md)
