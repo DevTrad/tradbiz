@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+	<p><strong>{{ session('error') }}</strong></p>
 	{{ Form::open(['action' => 'RemindersController@postReset']) }}
 	<table>
 		<tr>

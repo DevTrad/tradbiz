@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Input;
 use Redirect;
 use Password;
 use Hash;
+use Lang;
 
 class RemindersController extends Controller {
 
@@ -34,7 +35,7 @@ class RemindersController extends Controller {
 			case Password::INVALID_USER:
 				return Redirect::back()->with('error', Lang::get($response));
 
-			case Password::REMINDER_SENT:
+			case Password::RESET_LINK_SENT:
 				return view('notifications.email');
 		}
 	}
@@ -59,7 +60,7 @@ class RemindersController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function postReset(Request $request)
+	public function postReset()
 	{
 		$credentials = Input::only(
 			'email', 'password', 'password_confirmation', 'token'
@@ -77,7 +78,7 @@ class RemindersController extends Controller {
 			case Password::INVALID_PASSWORD:
 			case Password::INVALID_TOKEN:
 			case Password::INVALID_USER:
-				return Redirect::back()->with('error', Lang::get($response));
+				return Redirect::back()->withInput()->with('error', Lang::get($response));
 
 			case Password::PASSWORD_RESET:
 				return Redirect::to('/');

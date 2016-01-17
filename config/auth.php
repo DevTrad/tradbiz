@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => tradbiz\User::class,
+            'model' => tradbiz\Models\User::class,
         ],
 
         // 'users' => [
@@ -98,8 +98,8 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'email' => 'auth.emails.password',
-            'table' => 'password_resets',
+            'email' => 'emails.auth.reminder',
+            'table' => 'password_reminders',
             'expire' => 60,
         ],
     ],

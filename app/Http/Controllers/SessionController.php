@@ -48,6 +48,8 @@ class SessionController extends BaseController {
 		$input = $request->all();
 		$activationStatus = $this->user->fill($input)->activationStatus();
 
+		$error = '';
+
 		if($activationStatus == 0) {
 			$error = 'Your account is not activated yet.';
 		} elseif($activationStatus == -1) {
