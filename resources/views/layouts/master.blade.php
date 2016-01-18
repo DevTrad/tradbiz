@@ -40,7 +40,7 @@
 			</nav>
 
 			<footer class="copyright">
-				Website created by Top Page Design | &copy; TradBiz &mdash; 2014 | Proudly hosted on Openshift
+				&copy; TradBiz &mdash; 2016
 			</footer>
 		</footer>
 	</body>
