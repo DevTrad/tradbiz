@@ -6,7 +6,7 @@ Tradbiz is a platform to allow Traditional Catholic owned businesses to connect 
 
 [Laravel Readme](README-LARAVEL.md)
 
-[Todo](TODO.md)
+[Read before contributing to this project](CONTRIBUTING.md)
 
 The website is written in [Laravel](http://laravel.com/) (version 5), a PHP MVC framework.
 
