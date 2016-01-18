@@ -4,7 +4,7 @@ Tradbiz is a platform to allow Traditional Catholic owned businesses to connect 
 
 ## Developer Info
 
-[Laravel Readme](README-LARAVEL.md)
+[Laravel Readme](LARAVEL-README.md)
 
 [Read before contributing to this project](CONTRIBUTING.md)
 
