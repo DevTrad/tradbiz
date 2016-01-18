@@ -25,6 +25,12 @@ First, clone this repository. Then open a terminal in the cloned directory and r
 $ php composer.phar update
 ```
 
+Note that windows users should run the following instead:
+
+```
+> composer update
+```
+
 ### Configuration
 
 In the root folder of the tradbiz project you will find a file named `.env.example`. Change the necessary variables (like MySQL password and username), and save it as `.env` in the same directory.
