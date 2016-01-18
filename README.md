@@ -1,5 +1,7 @@
 # Tradbiz
 
+[![Join the chat at https://gitter.im/DevTrad/tradbiz](https://badges.gitter.im/DevTrad/tradbiz.svg)](https://gitter.im/DevTrad/tradbiz?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Tradbiz is a platform to allow Traditional Catholic owned businesses to connect with Traditional Catholic customers. Businesses can offer promotions for their Traditional Catholic customers, and customers can review the businesses for other Trads.
 
 ## Developer Info
