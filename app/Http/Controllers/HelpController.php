@@ -13,17 +13,17 @@ class HelpController extends BaseController {
 	 */
 	public function index()
 	{
-		return view('help.index');
+		return view('help.index', ['title' => 'Help']);
 	}
 
 	public function customers()
 	{
-		return view('help.customers');
+		return view('help.customers', ['title' => 'Help for Customers']);
 	}
 
 	public function businesses()
 	{
-		return view('help.businesses');
+		return view('help.businesses', ['title' => 'Help for Businesses']);
 	}
 
 }

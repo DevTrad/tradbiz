@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('title')
-Welcome, {{{ Auth::user()->first_name }}} {{{ Auth::user()->last_name }}}
-@stop
-
 @section('feature')
 	<h1>Welcome, {{{ Auth::user()->first_name }}} {{{ Auth::user()->last_name }}}</h1>
 @stop

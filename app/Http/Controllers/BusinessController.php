@@ -35,7 +35,7 @@ class BusinessController extends BaseController {
 		$results = DB::table('businesses')->where('name', 'LIKE', $sqlsearch);
 		$results = DB::table('businesses')->where('description', 'LIKE', $sqlsearch)->union($results)->get();
 
-		return view('businesses.index', ['results' => $results, 'query' => $query]);
+		return view('businesses.index', ['title' => 'Search Results', 'results' => $results, 'query' => $query]);
 	}
 
 
@@ -46,7 +46,7 @@ class BusinessController extends BaseController {
 	 */
 	public function create()
 	{
-		return view('businesses.create', ['edit' => false]);
+		return view('businesses.create', ['title' => 'Add Business', 'edit' => false]);
 	}
 
 
@@ -89,7 +89,7 @@ class BusinessController extends BaseController {
 		$owner = User::find($business->owner_id);
 		$reviews = Review::where('business_id', '=', $business->id)->get();
 
-		return view('businesses.show', ['business' => $business, 'owner' => $owner, 'reviews' => $reviews]);
+		return view('businesses.show', ['title' => $business->name, 'business' => $business, 'owner' => $owner, 'reviews' => $reviews]);
 	}
 
 
@@ -104,7 +104,7 @@ class BusinessController extends BaseController {
 		$business = Business::where('slug', '=', $id)->first();
 
 		if($this->user->authedToModifyBusiness(Auth::user(), $business)) {
-			return view('businesses.create', ['business' => $business, 'edit' => true]);
+			return view('businesses.create', ['title' => 'Edit Business', 'business' => $business, 'edit' => true]);
 		}
 
 		return Redirect::route('businesses.show', $business->slug);
@@ -182,6 +182,6 @@ class BusinessController extends BaseController {
 				$message->to('flyingfisch@toppagedesign.com', 'Mark Fischer')->subject('TradBiz - A business has been flagged.');
 			}
 		);
-		return view('businesses.flagged');
+		return view('businesses.flagged', ['title' => 'Business Flagged Successfully']);
 	}
 }

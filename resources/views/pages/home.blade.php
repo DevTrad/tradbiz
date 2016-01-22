@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('title')
-Traditional Catholic Business Finder
-@stop
-
 @section('head')
 	<script>
 		function initialize() {

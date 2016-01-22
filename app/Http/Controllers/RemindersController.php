@@ -20,7 +20,7 @@ class RemindersController extends Controller {
 	 */
 	public function getRemind()
 	{
-		return view('password.remind');
+		return view('password.remind', ['title' => 'Password Reminder']);
 	}
 
 	/**
@@ -36,7 +36,7 @@ class RemindersController extends Controller {
 				return Redirect::back()->with('error', Lang::get($response));
 
 			case Password::RESET_LINK_SENT:
-				return view('notifications.email');
+				return view('notifications.email', ['title' => 'Reminder Sent']);
 		}
 	}
 
@@ -52,7 +52,7 @@ class RemindersController extends Controller {
 			abort(404);
 		}
 
-		return view('password.reset', ['token' => $token]);
+		return view('password.reset', ['title' => 'Reset Password', 'token' => $token]);
 	}
 
 	/**

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>@yield('title') - TradBiz</title>
+		<title>{{ isset($title) ? $title . ' - ' : '' }}TradBiz</title>
 		<link href="/assets/css/normalize.css" rel="stylesheet">
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="http://fonts.googleapis.com/css?family=Raleway:400,700,800" rel="stylesheet">

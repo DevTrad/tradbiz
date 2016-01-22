@@ -29,7 +29,7 @@ class UserController extends BaseController {
 	public function index()
 	{
 		$users = User::all();
-		return view('users.index')->with(['users' => $users]);
+		return view('users.index', ['title' => 'All Users', 'users' => $users]);
 	}
 
 
@@ -40,7 +40,7 @@ class UserController extends BaseController {
 	 */
 	public function create()
 	{
-		return view('users.create');
+		return view('users.create', ['title' => 'Register']);
 	}
 
 
@@ -78,7 +78,7 @@ class UserController extends BaseController {
 		$this->user->sendActivationEmail();
 
 		Auth::logout();
-		return view('notifications.accountsuccess');
+		return view('notifications.accountsuccess', ['title' => 'Account Created!']);
 	}
 
 
@@ -93,7 +93,7 @@ class UserController extends BaseController {
 		$user = User::where('username', '=', $id)->first();
 		$businesses = Business::where('owner_id', '=', $user->id)->get();
 
-		return view('users.show', ['user' => $user, 'businesses' => $businesses]);
+		return view('users.show', ['title' => 'User Profile', 'user' => $user, 'businesses' => $businesses]);
 	}
 
 
@@ -161,9 +161,9 @@ class UserController extends BaseController {
 			$user->active = true;
 			$user->save();
 
-			return view('users.activate', ['success' => true]);
+			return view('users.activate', ['title' => 'Account Activation', 'success' => true]);
 		} else {
-			return view('users.activate', ['success' => false, 'id' => $id]);
+			return view('users.activate', ['title' => 'Account Activation', 'success' => false, 'id' => $id]);
 		}
 	}
 
@@ -176,7 +176,7 @@ class UserController extends BaseController {
 	{
 		$businesses = Business::where('owner_id', '=', Auth::user()->id)->get();
 
-		return view('users.dashboard', ['businesses' => $businesses]);
+		return view('users.dashboard', ['title' => 'Welcome, ' . Auth::user()->first_name . ' ' . Auth::user()->last_name, 'businesses' => $businesses]);
 	}
 
 	public function resendActivationEmail($id)
@@ -191,7 +191,7 @@ class UserController extends BaseController {
 
 	public function resendActivationEmailForm()
 	{
-		return view('activation.resendemail');
+		return view('activation.resendemail', ['title' => 'Redo Activation']);
 	}
 
 	public function activationLookupEmail(Request $request)

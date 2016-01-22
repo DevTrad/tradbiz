@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('title')
-{{ $business->name }}
-@stop
-
 @section('head')
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDanRnl4TRZyI5BjvLfWNjtBatjrVwd-LM"></script>
 <script type="text/javascript">

@@ -1,9 +1,5 @@
 @extends('layouts.master')
 
-@section('title')
-Business Flagged Successfully
-@stop
-
 @section('feature')
 	<h1>Business Flagged Successfully</h1>
 @stop

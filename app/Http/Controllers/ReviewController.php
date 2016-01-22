@@ -24,7 +24,8 @@ class ReviewController extends BaseController {
 	 */
 	public function index()
 	{
-		//
+		// @JustinEldracher just playing around, getting things to work... ;)
+		return view('reviews.index', ['title' => 'Reviews', 'reviews' => Review::all()]);
 	}
 
 
@@ -38,7 +39,7 @@ class ReviewController extends BaseController {
 		$business_id = Input::get('business_id');
 		$business = Business::where('id', '=', $business_id)->first();
 
-		return view('reviews.create', ['business' => $business]);
+		return view('reviews.create', ['title' => 'Add a Review', 'business' => $business]);
 	}
 
 
