@@ -30,7 +30,7 @@
 
 @section('content')
 	@if(Auth::guest() == null)
-		@if($business->owner_id == Auth::user()->id || Auth::user()->account_type == 99)
+		@if($business->owner_id == Auth::user()->id || Auth::user()->isAdmin())
 			<p>{{ link_to_route('businesses.edit', 'Edit Business', $business->slug, ['class' => 'button']) }}</p>
 
 			{{ Form::open(['route' => ['businesses.destroy', $business->id], 'method' => 'delete', 'id' => 'delete']) }}

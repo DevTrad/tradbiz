@@ -178,7 +178,7 @@ class BusinessController extends BaseController {
 		$adminEmails = [];
 
 		foreach ($users as $user) {
-			if ($user->account_type == 99) {
+			if ($user->isAdmin()) {
 				array_push($adminEmails, $user->email);
 			}
 		}

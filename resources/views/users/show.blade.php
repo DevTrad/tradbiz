@@ -9,7 +9,7 @@ User Profile
 @stop
 
 @section('content')
-	@if(Auth::user() && Auth::user()->account_type == 99)
+	@if(Auth::user() && Auth::user()->isAdmin())
 		{{ Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete', 'id' => 'delete']) }}
 			<p>{{ Form::submit('Delete User') }}</p>
 		{{ Form::close() }}

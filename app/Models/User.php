@@ -69,11 +69,20 @@ class User extends Authenticatable {
 	 * @return Boolean
 	 */
 	public function authedToModifyBusiness($user, $business) {
-		if($user->id == $business->owner_id || $user->account_type == 99) {
+		if($user->id == $business->owner_id || $user->isAdmin()) {
 			return True;
 		}
 
 		return False;
+	}
+
+	/**
+	 * Check if user is admin
+	 *
+	 * @return Boolean
+	 */
+	public function isAdmin() {
+		return $this->account_type == 99;
 	}
 
 
