@@ -92,5 +92,8 @@ On Windows, try this instead to avoid firewall issues:
 php artisan serve --port="8888"
 ```
 
+### Misc
+
+* The first user that registers will automatically be made an admin. All users that register afterwards will have to be made admins manually.
 
 _Note: If you have any problems getting this to run, please file an issue_
