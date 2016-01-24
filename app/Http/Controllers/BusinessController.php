@@ -174,14 +174,23 @@ class BusinessController extends BaseController {
 	public function flag($id) {
 		$flagger = Auth::user()->username;
 		$business = Business::find($id);
+		$users = User::all();
+		$adminEmails = [];
+
+		foreach ($users as $user) {
+			if ($user->account_type == 99) {
+				array_push($adminEmails, $user->email);
+			}
+		}
 
 		Mail::send(
 			'emails.admin.flag',
 			['flagger' => $flagger, 'business' => $business, 'extra_comments' => ''],
-			function($message) {
-				$message->to('flyingfisch@toppagedesign.com', 'Mark Fischer')->subject('TradBiz - A business has been flagged.');
+			function($message) use ($adminEmails) {
+				$message->to($adminEmails, null)->subject('TradBiz - A business has been flagged.');
 			}
 		);
+
 		return view('businesses.flagged', ['title' => 'Business Flagged Successfully']);
 	}
 }
