@@ -2,6 +2,7 @@
 
 namespace tradbiz\Models;
 
+use tradbiz\Models\Review;
 use Illuminate\Database\Eloquent\Model;
 
 class Business extends Model {
@@ -35,10 +36,21 @@ class Business extends Model {
 	 */
 	protected $table = 'businesses';
 
+	/**
+	 * Fixes the URL for a business
+	 *
+	 */
 	public function correctUrl() {
 		if((count($this->url) > 1) && (substr($this->url, 0, 7) != 'http://')) {
 			$this->url = 'http://' . $this->url;
 		}
 	}
 
+	/**
+	 * Gets average rating for business
+	 *
+	 */
+	public function averageRating() {
+		return round(Review::where('business_id', '=', $this->id)->avg('rating'), 1);
+	}
 }

@@ -27,7 +27,7 @@ class UpdateBusinesses extends Migration {
 	{
 		Schema::table('businesses', function(Blueprint $table)
 		{
-			//
+			$table->dropColumn('url')
 		});
 	}
 

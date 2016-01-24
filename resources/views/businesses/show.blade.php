@@ -60,8 +60,8 @@
 
 	<div class="reviews padded">
 		<h1>Reviews</h1>
-		@if($business->average_rating > 0)
-			<p>Average rating: {{ $business->average_rating }}/5 stars</p>
+		@if($business->averageRating() > 0)
+			<p>Average rating: {{ $business->averageRating() }}/5 stars</p>
 		@endif
 		@include('reviews.index')
 		<p>{{ link_to_route('reviews.create', 'Add Consumer Review', ['business_id' => $business->id], ['class' => 'button']) }}</p>
